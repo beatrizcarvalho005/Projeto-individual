@@ -3,6 +3,7 @@
   margin: 0;
   box-sizing: border-box;
 
+  /* esse pega tudo */
 }
 
 
@@ -18,6 +19,8 @@
   transition: background-color 0.4s ease, box-shadow 0.4s ease, border-radius 0.4s ease;
   border-radius: 0;
   box-shadow: none;
+
+  /* navbar em geral */
 }
 
 
@@ -27,11 +30,15 @@
   padding: 5px;
   margin: 0;
   margin-left: 1150px;
+
+  /* os textos da navbar */
 }
 
 .navbar-links :hover {
   border-radius: 2px;
   cursor: pointer;
+
+ /* Efeito ao passar o mouse sobre o item da navbar */
 
 }
 
@@ -42,14 +49,17 @@
   height: 5px;
   background-color: black;
   transition: 2s ease;
+ /* Adiciona um pseudo-elemento após o link */
 
 }
 
 .navbar-links a:hover::after {
   width: 100%;
+/* Efeito de expansão do elemento ao passar o mouse */
 }
 
 
+/* estilo dos itens e da cor */
 .navbar-item {
   margin-right: 20px;
 }
@@ -59,6 +69,7 @@
   color: rgb(0, 0, 0);
 }
 
+/* tudo que está dentro do conteudo - texto, titulo */
 #conteudo {
   margin-bottom: 2px;
   flex-direction: column;
@@ -74,22 +85,131 @@
   border-radius: 10px;
 }
 
+/* estilo do titulo */
 #titulo {
+  padding: 40px;
+  margin-bottom: 100px;
   font-size: 40px;
   margin-bottom: 20px;
 }
 
+/* estiço do texto */
 #texto {
   padding: 80px;
   text-align: justify;
   margin: 40px;
 }
 
+/* efeito da navbar srollar */
 .navbar.scrolled {
  top: 10px;
  padding: 10px 20px;
  background-color: #ebd564;
  opacity: 1;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 60px; /* bordas arredondadas inferiores */
+  border-radius: 60px; 
+}
+/* imagem 1 subir um pouco */
+#imagem1{
+
+    margin-top: -20px; 
+    
+  }
+
+/* Estilo para a legenda das imagens */
+#imagem1 figcaption,
+#imagem2 figcaption,
+#imagem3 figcaption {
+  font-size: 14px;
+  color: #555;
+  margin-top: 16px; /* Espaçamento entre a imagem e a legenda */
+  transition: transform 0.3s ease; /* Adiciona transição suave no efeito */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Efeito de "subir" ao passar o mouse */
+#imagem1:hover, #imagem2:hover, #imagem3:hover {
+  transform: translateY(-10px); /* Move a imagem para cima em 10px */
+}
+
+
+/* estilo da figura com o texto */
+figure {
+  margin: 20px 0;
+  text-align: justify;
+}
+
+/* Rodapé */
+.rodape {
+  background-color: #ebd564;
+  color: rgb(0, 0, 0);
+  font-size: 14px;
+  font-family: Helvetica, sans-serif;
+  padding: 40px 0;
+  width: 100%;
+}
+
+.rodape a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+
+.rodape p {
+  margin-bottom: 5px;
+}
+
+/* Container do rodapé */
+.rodape-div {
+  display: flex;
+  justify-content: space-between; /* Adiciona espaçamento entre as colunas */
+  align-items: stretch;
+  padding: 0 10px;
+
+}
+
+/* Colunas dentro do rodapé */
+.rodape-div-1,
+.rodape-div-2,
+.rodape-div-3 {
+  display: flex;
+  width: calc(100% / 3 - 20px);
+  padding: 10px;
+}
+.rodape-div-1{
+  margin-left: 20px;
+}
+.rodape-div-2{
+ margin-left: 200px;
+}
+.rodape-div-3{
+  margin-left: 60px;
+}
+
+.rodape span {
+  font-size: 20px;
+  color: rgb(0, 0, 0);
+  font-weight: bold; /* Para destacar os títulos */
+}
+
+/* Alinhamento do conteúdo nas colunas */
+.rodape-div-1 p,
+.rodape-div-2 p,
+.rodape-div-3 p {
+  font-size: 14px;
+}
+
+.rodape-div-3 p a {
+  color: rgb(0, 0, 0); /* Define a cor do link */
+}
+
+.rodape-div-3 p a:hover {
+  text-decoration: underline; /* Adiciona o efeito de sublinhado ao passar o mouse */
+}
+.rodape span {
+  font-size: 20px;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  display: inline-block;
+  margin-bottom: 10px; /* Adiciona o espaço entre o título e os parágrafos */
 }
