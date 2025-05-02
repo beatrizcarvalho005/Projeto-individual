@@ -12,15 +12,16 @@
 <body>
     <div id="tudo">
 
-        <nav class="navbar">
+        <nav class="navbar fade-in-scroll">
             <ul class="navbar-links">
-                <li class="navbar-item"><a href="#">Home</a></li>
-                <li class="navbar-item"><a href="#">Sobre</a></li>
-                <li class="navbar-item"><a href="login.html">Login</a></li>
-                <li class="navbar-item"><a href="cadastro.html">Cadastre-se</a></li>
+              <li class="navbar-item"><a href="#">Home</a></li>
+              <li class="navbar-item"><a href="#">Sobre</a></li>
+              <li class="navbar-item"><a href="login.html">Login</a></li>
+              <li class="navbar-item"><a href="cadastro.html">Cadastre-se</a></li>
             </ul>
-            <div id="imagem"> a</div>
-        </nav>
+            <div id="imagem">a</div>
+          </nav>
+          
 
         <div id="conteudo">
             <div id="titulo"> Como Surgiu o pagode? </div>
@@ -106,3 +107,15 @@
 </body>
 
 </html>
+<script>
+
+window.addEventListener('scroll', function () {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 0) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+</script>
+

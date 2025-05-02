@@ -1,61 +1,95 @@
-*{
-padding: 0;
-margin: 0;
-box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 
 }
 
 
 .navbar {
-    background-color: #ebd564;
-    color: white;
-    padding: 25px;
-    margin-bottom: 10px;
-  }
-  
-  .navbar-links {
-    list-style-type: none;
-    display: flex;
-    padding: 5px;
-    margin: 0;
-    margin-left: 1150px;
-  }
-  .navbar-links :hover{
-    background-color: #424242;
- 
-    border-radius: 2px;
-    cursor: pointer;
-  }
+  background-color: #ebd564;
+  color: white;
+  padding: 25px;
+  margin-bottom: 10px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: background-color 0.4s ease, box-shadow 0.4s ease, border-radius 0.4s ease;
+  border-radius: 0;
+  box-shadow: none;
+}
 
-  
-  .navbar-item {
-    margin-right: 20px;
-  }
-  
-  .navbar-item a {
-    text-decoration:solid;
-    color: rgb(0, 0, 0);
-  }
 
-  #conteudo{
-    margin-bottom: 2px;
-    flex-direction: column;
-    display: flex;
-    text-align: center;
-    background-color: rgb(243, 236, 144);
-    padding: 150px;
-    justify-content: center;
-    box-shadow: 2 20px 20px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    align-items:center;
-    margin: 100px;
-  }
-  #titulo{
-font-size: 40px;
-margin-bottom: 20px;
-  }
-  #texto{
-    padding: 80px;
-    text-align: justify;
-    margin: 40px;
-  }
+.navbar-links {
+  list-style-type: none;
+  display: flex;
+  padding: 5px;
+  margin: 0;
+  margin-left: 1150px;
+}
+
+.navbar-links :hover {
+  border-radius: 2px;
+  cursor: pointer;
+
+}
+
+.navbar-links a::after {
+  content: "";
+  display: block;
+  width: 5px;
+  height: 5px;
+  background-color: black;
+  transition: 2s ease;
+
+}
+
+.navbar-links a:hover::after {
+  width: 100%;
+}
+
+
+.navbar-item {
+  margin-right: 20px;
+}
+
+.navbar-item a {
+  text-decoration: solid;
+  color: rgb(0, 0, 0);
+}
+
+#conteudo {
+  margin-bottom: 2px;
+  flex-direction: column;
+  display: flex;
+  text-align: center;
+  background-color: rgb(243, 236, 144);
+  padding: 150px;
+  justify-content: center;
+  box-shadow: 2 20px 20px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  align-items: center;
+  margin: 250px;
+  border-radius: 10px;
+}
+
+#titulo {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+#texto {
+  padding: 80px;
+  text-align: justify;
+  margin: 40px;
+}
+
+.navbar.scrolled {
+ top: 10px;
+ padding: 10px 20px;
+ background-color: #ebd564;
+ opacity: 1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 60px; /* bordas arredondadas inferiores */
+}
