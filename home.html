@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.css">
+    <title>Home</title>
+</head>
+
+<body>
+    <div id="tudo">
+
+        <nav class="navbar fade-in-scroll">
+            <ul class="navbar-links">
+                <li class="navbar-item"><a href="home.html">Home</a></li>
+                <li class="navbar-item"><a href="sobre.html">Sobre</a></li>
+                <li class="navbar-item"><a href="login.html">Login</a></li>
+                <li class="navbar-item"><a href="cadastro.html">Cadastre-se</a></li>
+            </ul>
+            <div id="imagem">a</div>
+        </nav>
+
+        <div id="imagem_card"></div>
+
+        <!-- Card principal -->
+        <div id="card">
+
+            <div id="lado_texto">
+                <p id="titulo_card">Bem Vindo ao Pagodeando!</p>
+                <span id="texto">
+                    Pagode: Ritmo, Tradição e Cultura Brasileira.
+                    O pagode é uma das expressões mais marcantes da música popular brasileira, nascido dos encontros nas
+                    rodas de samba e das vivências nas comunidades. Com sua batida envolvente e letras que falam de
+                    amor, cotidiano e resistência,
+                    o pagode é mais do que música — é identidade, história e celebração.
+
+                    Das origens humildes nos quintais do subúrbio carioca aos grandes palcos nacionais, o pagode
+                    representa um encontro de vozes e tambores que ecoam o
+                    sentimento do povo brasileiro. Descubra mais sobre esse ritmo que conquistou corações e marcou
+                    gerações. Participe de nossos cursos, eventos e viva a essência do pagode de perto!
+                </span>
+
+            </div>
+            <div class="container-horizontal">
+                <div id="carrosel">
+                    <div class="primeiro">1</div>
+                    <div class="segundo">2</div>
+                    <div class="terceiro">3</div>
+                </div>
+                <button onclick="trocar()">mudar</button>
+            </div>
+            
+
+            <!-- Div adicional -->
+
+
+        </div> <!-- Fecha #tudo -->
+
+</body>
+
+</html>
+<script>
+    window.addEventListener('scroll', function () {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 0) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
+    function trocar() {
+        var primeiro = document.querySelector(".primeiro")
+        var segundo = document.querySelector(".segundo")
+        var terceiro = document.querySelector(".terceiro")
+        primeiro.classList.replace("primeiro", "terceiro")
+        segundo.classList.replace("segundo", "primeiro")
+        terceiro.classList.replace("terceiro", "segundo")
+    }
+</script>

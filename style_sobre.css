@@ -48,7 +48,7 @@
   width: 5px;
   height: 5px;
   background-color: black;
-  transition: 2s ease;
+  transition: 1s ease;
  /* Adiciona um pseudo-elemento após o link */
 
 }
@@ -109,10 +109,12 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   border-radius: 60px; 
 }
+
 /* imagem 1 subir um pouco */
 #imagem1{
 
     margin-top: -20px; 
+    border-radius: 70%;
     
   }
 
@@ -126,11 +128,14 @@
   transition: transform 0.3s ease; /* Adiciona transição suave no efeito */
   display: flex;
   flex-direction: column;
+
+
 }
 
 /* Efeito de "subir" ao passar o mouse */
 #imagem1:hover, #imagem2:hover, #imagem3:hover {
   transform: translateY(-10px); /* Move a imagem para cima em 10px */
+  border-radius: 10px;
 }
 
 
@@ -189,7 +194,7 @@ figure {
 .rodape span {
   font-size: 20px;
   color: rgb(0, 0, 0);
-  font-weight: bold; /* Para destacar os títulos */
+  font-weight: bold; 
 }
 
 /* Alinhamento do conteúdo nas colunas */
