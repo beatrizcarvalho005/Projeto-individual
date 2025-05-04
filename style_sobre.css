@@ -6,6 +6,18 @@
   /* esse pega tudo */
 }
 
+#imagem {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  height: 60px;
+  width: 60px; /* ajuste o tamanho conforme sua logo */
+  background-image: url('img/logo.png'); /* caminho da sua logo */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
 .navbar {
   background-color: #ebd564;
@@ -165,6 +177,18 @@ figure {
 }
 
 /* Container do rodapé */
+
+#logo {
+  display: inline-block;
+  width: 100px; /* ajuste como preferir */
+  height: 100px;
+  background-image: url('img/logo.png'); /* ajuste o caminho se necessário */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-bottom: 10px; /* opcional */
+}
+
 .rodape-div {
   display: flex;
   justify-content: space-between; /* Adiciona espaçamento entre as colunas */

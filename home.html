@@ -1,16 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="home.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
+    <link rel="stylesheet" href="home.css" />
+    <link rel="shortcut icon" type="imagex/png" href="./img/logo.png">
 </head>
 
 <body>
     <div id="tudo">
 
+        <!-- NAVBAR -->
         <nav class="navbar fade-in-scroll">
             <ul class="navbar-links">
                 <li class="navbar-item"><a href="home.html">Home</a></li>
@@ -18,49 +20,165 @@
                 <li class="navbar-item"><a href="login.html">Login</a></li>
                 <li class="navbar-item"><a href="cadastro.html">Cadastre-se</a></li>
             </ul>
-            <div id="imagem">a</div>
+            <div id="imagem"></div>
         </nav>
 
+        <!-- Imagem de fundo -->
         <div id="imagem_card"></div>
 
-        <!-- Card principal -->
+        <!-- CARD PRINCIPAL -->
         <div id="card">
-
             <div id="lado_texto">
                 <p id="titulo_card">Bem Vindo ao Pagodeando!</p>
                 <span id="texto">
-                    Pagode: Ritmo, Tradição e Cultura Brasileira.
-                    O pagode é uma das expressões mais marcantes da música popular brasileira, nascido dos encontros nas
-                    rodas de samba e das vivências nas comunidades. Com sua batida envolvente e letras que falam de
-                    amor, cotidiano e resistência,
-                    o pagode é mais do que música — é identidade, história e celebração.
-
-                    Das origens humildes nos quintais do subúrbio carioca aos grandes palcos nacionais, o pagode
-                    representa um encontro de vozes e tambores que ecoam o
-                    sentimento do povo brasileiro. Descubra mais sobre esse ritmo que conquistou corações e marcou
-                    gerações. Participe de nossos cursos, eventos e viva a essência do pagode de perto!
+                    Pagode: Ritmo, Tradição e Cultura Brasileira. O pagode é uma das expressões mais marcantes da música
+                    popular brasileira, nascido dos encontros nas rodas de samba e das vivências nas comunidades. Com
+                    sua batida envolvente e letras que falam de amor, cotidiano e resistência, o pagode é mais do que
+                    música — é identidade, história e celebração.
+                    <br><br>
+                    Das origens humildes nos quintais do subúburbio carioca aos grandes palcos nacionais, o pagode
+                    representa um encontro de vozes e tambores que ecoam o sentimento do povo brasileiro. Descubra mais
+                    sobre esse ritmo que conquistou corações e marcou gerações.
                 </span>
-
             </div>
-            <div class="container-horizontal">
-                <div id="carrosel">
-                    <div class="primeiro">1</div>
-                    <div class="segundo">2</div>
-                    <div class="terceiro">3</div>
+
+            <!-- Carrossel -->
+            <div class="carrossel">
+                <div class="carrossel_circulos" id="carrossel">
+                    <img src="img/carrossel1.jpeg" class="circulo circulo_aparente" onclick="trocar()" />
+                    <img src="img/carrossel2.jpeg" class="circulo circulo_escondido" onclick="trocar()" />
+                    <img src="img/carrossel3.jpeg" class="circulo circulo_escondido" onclick="trocar()" />
+                    <img src="img/carrossel4.jpeg" class="circulo circulo_escondido" onclick="trocar()" />
                 </div>
-                <button onclick="trocar()">mudar</button>
             </div>
-            
+        </div> <!-- fecha #card -->
 
-            <!-- Div adicional -->
+        <!-- CARD INSCREVA -->
+        <div id="card_inscreva">
+            <div id="card_imagem_ins"></div>
+            <div id="card_texto_ins">
+                Se você é apaixonado por música brasileira, especialmente pelo ritmo contagiante do pagode, este é o seu
+                espaço.
+                Ao se cadastrar, você passa a fazer parte de uma comunidade dedicada à valorização da cultura, da arte e
+                da história que o pagode carrega em cada batida.
+                <br><br>
+                Aqui, oferecemos acesso a conteúdos exclusivos como curiosidades sobre o mundo do pagode, materiais
+                especiais para quem deseja aprender mais, e muito mais.
+                <br><br>
+                Viva o pagode com a gente!
+            </div>
+        </div>
+
+        <!-- MISSÃO -->
+        <div id="titulo_missao">POR QUE CONHECER O PAGODEANDO?</div>
+        <div id="missao">
+            <div class="item-missao">
+                <div class="icone-missao" style="background-image: url('img/comunidade (1).png');"></div>
+                <div class="titulo_missao">Coletividade</div>
+                <div class="texto-missao">
+                    O pagode é capaz de unir as pessoas, independente da língua e lugar no mundo.
+                </div>
+            </div>
+
+            <div class="item-missao">
+                <div class="icone-missao" style="background-image: url('img/flecha.png');"></div>
+                <div class="titulo_missao">Equilíbrio</div>
+                <div class="texto-missao">
+                    Eleva os sentimentos e pensamentos, trazendo equilíbrio no nosso dia a dia.
+                </div>
+            </div>
+
+            <div class="item-missao">
+                <div class="icone-missao" style="background-image: url('img/criativo.png');"></div>
+                <div class="titulo_missao">Criatividade</div>
+                <div class="texto-missao">
+                    Estimula a intuição e a criatividade, desenvolvendo nossas habilidades e a conexão entre as artes.
+                </div>
+            </div>
+
+            <div class="item-missao">
+                <div class="icone-missao" style="background-image: url('img/felicidade.png');"></div>
+                <div class="titulo_missao">Autoconhecimento</div>
+                <div class="texto-missao">
+                    Permite-nos alcançar o autoconhecimento e uma melhor relação com o outro.
+                </div>
+            </div>
+
+            <div class="item-missao">
+                <div class="icone-missao" style="background-image: url('img/coracao.png');"></div>
+                <div class="titulo_missao">Sabedoria</div>
+                <div class="texto-missao">
+                    O pagode, desde suas raízes, é um legado precioso de sabedoria e conhecimento do mundo.
+                </div>
+            </div>
+        </div>
+
+        <div id="depo">
+            <div id="titulo_depo">DEPOIMENTOS</div>
+          
+            <div class="depo-card-container">
+              <div class="depo-card">
+                <div class="titulo_card">João Silva</div>
+                <div class="texto_card">
+                  “A experiência com a equipe foi maravilhosa! Sempre atenciosos e preocupados com nosso bem-estar. Recomendo a todos.”
+                </div>
+              </div>
+          
+              <div class="depo-card">
+                <div class="titulo_card">Maria Oliveira</div>
+                <div class="texto_card">
+                  “Muito grata por todo o apoio e carinho. A estrutura e o atendimento são impecáveis. Superou minhas expectativas!”
+                </div>
+              </div>
+          
+              <div class="depo-card">
+                <div class="titulo_card">Carlos Mendes</div>
+                <div class="texto_card">
+                  “Serviço de excelência. Me senti acolhido desde o primeiro momento. Equipe comprometida e humana.”
+                </div>
+              </div>
+            </div>
+          </div>
+          
 
 
-        </div> <!-- Fecha #tudo -->
+
+    </div> <!-- fecha #tudo -->
+
+    <!-- RODAPÉ -->
+    <footer class="rodape" id="contato">
+        <div class="rodape-div">
+            <div class="rodape-div-1">
+                <div class="rodape-div-1-coluna">
+                    <span id="logo"> <b></b></span>
+                    <p>Rua Haddock Lobo, 595 - Cerqueira César, São Paulo - SP, 01414-001</p>
+                </div>
+            </div>
+
+            <div class="rodape-div-2">
+                <div class="rodape-div-2-coluna">
+                    <span><b>Contatos</b></span>
+                    <p>pagodeando@.com</p>
+                    <p>+55 11 91111-0000</p>
+                </div>
+            </div>
+
+            <div class="rodape-div-3">
+                <div class="rodape-div-3-coluna">
+                    <span><b>Links</b></span>
+                    <p><a href="#servicos">Instagram</a></p>
+                    <p><a href="#empresa">GitHub</a></p>
+                    <p><a href="#sobre">LinkedIn</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 </body>
 
 </html>
 <script>
+
     window.addEventListener('scroll', function () {
         const navbar = document.querySelector('.navbar');
         if (window.scrollY > 0) {
@@ -70,12 +188,31 @@
         }
     });
 
+
+    let index = 0;
+
     function trocar() {
-        var primeiro = document.querySelector(".primeiro")
-        var segundo = document.querySelector(".segundo")
-        var terceiro = document.querySelector(".terceiro")
-        primeiro.classList.replace("primeiro", "terceiro")
-        segundo.classList.replace("segundo", "primeiro")
-        terceiro.classList.replace("terceiro", "segundo")
+        const imagens = document.querySelectorAll('.circulo');
+
+        // Zera todas as imagens
+        imagens.forEach((img) => {
+            img.classList.remove('circulo_aparente', 'circulo_escondido');
+            img.style.opacity = 0;
+            img.style.zIndex = 0;
+        });
+
+        // Define a imagem atual como "circulo_aparente"
+        imagens[index].classList.add('circulo_aparente');
+        imagens[index].style.opacity = 1;
+        imagens[index].style.zIndex = 2;
+
+        // Define a próxima como "circulo_escondido"
+        const proximo = (index + 1) % imagens.length;
+        imagens[proximo].classList.add('circulo_escondido');
+        imagens[proximo].style.opacity = 0.8;
+        imagens[proximo].style.zIndex = 1;
+
+        // Avança para a próxima
+        index = proximo;
     }
 </script>
