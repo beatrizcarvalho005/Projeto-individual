@@ -2,8 +2,12 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
 
-  /* esse pega tudo */
+body {
+  background-color: #1c1c1c;
+  color: #fff;
+  font-family: Arial, sans-serif;
 }
 
 #imagem {
@@ -12,146 +16,130 @@
   left: 20px;
   transform: translateY(-50%);
   height: 60px;
-  width: 60px; /* ajuste o tamanho conforme sua logo */
-  background-image: url('img/logo.png'); /* caminho da sua logo */
+  width: 60px;
+  background-image: url('img/re.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 }
 
+/* NAVBAR */
+/* NAVBAR */
 .navbar {
-  background-color: #ebd564;
+  background-color: #1a1a1a;
   color: white;
-  padding: 25px;
-  margin-bottom: 10px;
+  padding: 20px 60px;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 1000;
-  transition: background-color 0.4s ease, box-shadow 0.4s ease, border-radius 0.4s ease;
-  border-radius: 0;
-  box-shadow: none;
-
-  /* navbar em geral */
+  display: flex;
+  justify-content: flex-end; /* Alinha os itens à direita */
+  align-items: center;
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
+  border-bottom: 2px solid #444;
 }
 
+.navbar.scrolled {
+  top: 10px;
+  padding: 18px 40px;
+  background-color: #1a1a1a;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  border-radius: 30px;
+}
 
 .navbar-links {
-  list-style-type: none;
+  list-style: none;
   display: flex;
-  padding: 5px;
-  margin: 0;
-  margin-left: 1150px;
-
-  /* os textos da navbar */
-}
-
-.navbar-links :hover {
-  border-radius: 2px;
-  cursor: pointer;
-
- /* Efeito ao passar o mouse sobre o item da navbar */
-
-}
-
-.navbar-links a::after {
-  content: "";
-  display: block;
-  width: 5px;
-  height: 5px;
-  background-color: black;
-  transition: 1s ease;
- /* Adiciona um pseudo-elemento após o link */
-
-}
-
-.navbar-links a:hover::after {
-  width: 100%;
-/* Efeito de expansão do elemento ao passar o mouse */
-}
-
-
-/* estilo dos itens e da cor */
-.navbar-item {
-  margin-right: 20px;
+  gap: 25px;
+  align-items: center;
 }
 
 .navbar-item a {
-  text-decoration: solid;
-  color: rgb(0, 0, 0);
+  text-decoration: none;
+  color: #f0f0f0;
+  font-weight: 600;
+  position: relative;
+  padding: 6px 10px;
+  transition: color 0.3s ease;
+  font-size: 16px;
+  text-transform: uppercase;
 }
 
-/* tudo que está dentro do conteudo - texto, titulo */
+.navbar-item a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background-color: #00ff99;
+  transition: width 0.3s ease;
+}
+
+.navbar-item a:hover::after,
+.navbar-item.active a::after {
+  width: 100%;
+}
+
+.navbar-item.active a {
+  color: #00ff99;
+}
+
+
+
+
 #conteudo {
-  margin-bottom: 2px;
+  margin: 250px auto;
   flex-direction: column;
   display: flex;
   text-align: center;
-  background-color: rgb(243, 236, 144);
-  padding: 150px;
-  justify-content: center;
-  box-shadow: 2 20px 20px rgba(0, 0, 0, 0.2);
+  background-color: #2a2828;
   padding: 20px;
+  justify-content: center;
+  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2);
   align-items: center;
-  margin: 250px;
   border-radius: 10px;
+  max-width: 1000px;
 }
 
-/* estilo do titulo */
 #titulo {
   padding: 40px;
-  margin-bottom: 100px;
-  font-size: 40px;
   margin-bottom: 20px;
+  font-size: 40px;
+  color: #00ff99;
 }
 
-/* estiço do texto */
 #texto {
   padding: 80px;
   text-align: justify;
   margin: 40px;
 }
 
-/* efeito da navbar srollar */
-.navbar.scrolled {
- top: 10px;
- padding: 10px 20px;
- background-color: #ebd564;
- opacity: 1;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 60px; 
+
+
+#imagem1 {
+  margin-top: -20px;
+  border-radius: 70%;
 }
 
-/* imagem 1 subir um pouco */
-#imagem1{
-
-    margin-top: -20px; 
-    border-radius: 70%;
-    
-  }
-
-/* Estilo para a legenda das imagens */
 #imagem1 figcaption,
 #imagem2 figcaption,
 #imagem3 figcaption {
   font-size: 14px;
-  color: #555;
-  margin-top: 16px; /* Espaçamento entre a imagem e a legenda */
-  transition: transform 0.3s ease; /* Adiciona transição suave no efeito */
+  color: #ccc;
+  margin-top: 16px;
+  transition: transform 0.3s ease;
   display: flex;
   flex-direction: column;
 
-
 }
 
-/* Efeito de "subir" ao passar o mouse */
 #imagem1:hover, #imagem2:hover, #imagem3:hover {
-  transform: translateY(-10px); /* Move a imagem para cima em 10px */
+  transform: translateY(-10px);
   border-radius: 10px;
 }
 
-
-/* estilo da figura com o texto */
 figure {
   margin: 20px 0;
   text-align: justify;
@@ -159,8 +147,8 @@ figure {
 
 /* Rodapé */
 .rodape {
-  background-color: #ebd564;
-  color: rgb(0, 0, 0);
+  background-color: rgb(22, 22, 22); 
+  color: rgb(255, 255, 255);
   font-size: 14px;
   font-family: Helvetica, sans-serif;
   padding: 40px 0;
@@ -177,27 +165,30 @@ figure {
 }
 
 /* Container do rodapé */
-
-#logo {
-  display: inline-block;
-  width: 100px; /* ajuste como preferir */
-  height: 100px;
-  background-image: url('img/logo.png'); /* ajuste o caminho se necessário */
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  margin-bottom: 10px; /* opcional */
-}
-
 .rodape-div {
   display: flex;
-  justify-content: space-between; /* Adiciona espaçamento entre as colunas */
+  justify-content: space-between;
+  /* Adiciona espaçamento entre as colunas */
   align-items: stretch;
   padding: 0 10px;
 
 }
 
 /* Colunas dentro do rodapé */
+#logo {
+  display: inline-block;
+  width: 100px;
+  /* ajuste como preferir */
+  height: 100px;
+  background-image: url('img/re.png');
+  /* ajuste o caminho se necessário */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-bottom: 10px;
+  /* opcional */
+}
+
 .rodape-div-1,
 .rodape-div-2,
 .rodape-div-3 {
@@ -205,20 +196,23 @@ figure {
   width: calc(100% / 3 - 20px);
   padding: 10px;
 }
-.rodape-div-1{
+
+.rodape-div-1 {
   margin-left: 20px;
 }
-.rodape-div-2{
- margin-left: 200px;
+
+.rodape-div-2 {
+  margin-left: 200px;
 }
-.rodape-div-3{
+
+.rodape-div-3 {
   margin-left: 60px;
 }
 
 .rodape span {
   font-size: 20px;
-  color: rgb(0, 0, 0);
-  font-weight: bold; 
+  color: rgb(255, 255, 255);
+  font-weight: bold;
 }
 
 /* Alinhamento do conteúdo nas colunas */
@@ -229,16 +223,20 @@ figure {
 }
 
 .rodape-div-3 p a {
-  color: rgb(0, 0, 0); /* Define a cor do link */
+  color: rgb(255, 255, 255);
+  /* Define a cor do link */
 }
 
 .rodape-div-3 p a:hover {
-  text-decoration: underline; /* Adiciona o efeito de sublinhado ao passar o mouse */
+  text-decoration: underline;
+  /* Adiciona o efeito de sublinhado ao passar o mouse */
 }
+
 .rodape span {
   font-size: 20px;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   font-weight: bold;
   display: inline-block;
-  margin-bottom: 10px; /* Adiciona o espaço entre o título e os parágrafos */
+  margin-bottom: 10px;
+  /* Adiciona o espaço entre o título e os parágrafos */
 }
