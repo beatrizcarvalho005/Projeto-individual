@@ -42,10 +42,10 @@
       </div>
        <div id="colunas3">
         <label for="cad_confirmar">Senha:</label>
-        <input type="password" id="cad_senha" name="senha">
+        <input type="password" id="cad_senha2" name="senha">
       </div>
   
-      <button id="cad_botao">Cadastrar</button>
+      <button id="cad_botao" onclick="cadastrar()">Cadastrar</button>
       <p class="trocar-link">Já tem uma conta? <a href="#" onclick="mostrarLogin()">Entrar</a></p>
     </div>
   
@@ -68,7 +68,7 @@
           <input type="password" id="login_senha" name="senha">
         </div>
   
-        <button id="login_botao">Entrar</button>
+        <button id="login_botao" onclick="autenticar()">Entrar</button>
         <p class="trocar-link">Não tem uma conta? <a href="#" onclick="mostrarCadastro()">Cadastre-se</a></p>
       </div>
     </div>
@@ -81,8 +81,65 @@
 </html>
 <script>
   function cadastrar() {
-    
+  // aguardar();
 
+  //Recupere o valor da nova input pelo nome do id
+  // Agora vá para o método fetch logo abaixo
+  var nomeVar = cad_nome.value;
+  var emailVar = cad_email.value;
+  var senhaVar = cad_senha.value;
+  var confirmacaoSenhaVar = cad_senha2.value;
+
+  // Verificando se há algum campo em branco
+  if (
+    nomeVar == "" ||
+    emailVar == "" ||
+    senhaVar == "" ||
+    confirmacaoSenhaVar == "" 
+  ) {
+    alert 
+      ("Existem campos em branco");
+    return
+  }
+  if (senhaVar != confirmacaoSenhaVar) {
+      alert ("Senhas não coincidem")
+
+      return 
   }
 
+  fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        nomeServer: nomeVar,
+        emailServer: emailVar,
+        senhaServer: senhaVar,
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+
+          alert 
+        ("Cadastro realizado com sucesso!");
+
+
+         
+        } else {
+          alert ("Houve um erro ao tentar realizar o cadastro!");
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+
+    return false;
+  }
+
+  
 </script>
