@@ -1,4 +1,3 @@
-
 * {
   margin: 0;
   padding: 0;
@@ -19,6 +18,9 @@ body {
 #cad_tudo {
   display: flex;
   flex-direction: row;  /* Faz os dois elementos ficarem lado a lado */
+  justify-content: center;
+  align-items: stretch;  /* Garante que os dois cards tenham a mesma altura */
+  gap: 0; /* Removendo o espaço entre os cards */
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
@@ -27,23 +29,28 @@ body {
 /* Formulário de Cadastro */
 #cad_conteudo {
   background-color: #292929;
-  padding: 40px;
-  width: 350px;
+  padding: 40px;  /* Padding interno */
+  width: 600px;   /* Largura fixa */
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between; /* Garante que o conteúdo seja distribuído corretamente */
   color: white;
+  border-radius: 12px; /* Adicionando borda para uniformidade */
+  height: auto;  /* Deixe a altura do card se ajustar ao conteúdo */
 }
 
 /* Formulário de Login */
 #img {
-  width: 350px;
   background-color: #292929;
-  padding: 40px;
+  padding: 40px 40px 80px 40px;  /* Aumentando o padding inferior para dar mais espaço */
+  width: 600px;   /* Largura fixa */
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center;  /* Centraliza o conteúdo verticalmente */
+  align-items: center;  /* Centraliza o conteúdo horizontalmente */
   color: white;
+  border-radius: 12px; /* Adicionando borda para uniformidade */
+  height: auto;  /* Deixe a altura do card se ajustar ao conteúdo */
 }
 
 /* Títulos */
@@ -74,15 +81,15 @@ label {
 
 /* Inputs */
 input {
-  padding: 10px;
+  padding: 12px;  /* Aumentando o padding dos campos */
   border-radius: 6px;
   border: 1px solid #ccc;
-  font-size: 16px;
+  font-size: 10px;
+  margin-bottom: 15px;  /* Espaçamento entre os campos */
+  width: 100%;
 }
 
 /* Botões */
-
-
 button:hover {
   background-color: #25b1a6;
 }
@@ -97,9 +104,52 @@ button {
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s ease;
-
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 60%;
+}
+
+/* link para troca */
+.trocar-link {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #ccc;
+  text-align: center;
+}
+
+.trocar-link a {
+  color: #25b1a6;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.trocar-link a:hover {
+  text-decoration: underline;
+}
+
+/* voltar */
+#voltar-home {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: #25b1a6;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+#voltar-home:hover {
+  background-color: #1a8079;
+}
+
+#img_cada {
+  position: absolute;
+  transform: translateX(0%);
 }

@@ -10,8 +10,14 @@
 
 <body>
 
+  <a href="home.html" id="voltar-home" title="Voltar para a página inicial">
+    &#8592; Início
+  </a>
+
   <div id="cad_tudo">
     <!-- Div do Cadastro -->
+
+    <!-- <div id="img_cada"><img src="img/imagem_card_inscreva.png" alt=""> </div> -->
 
     <div id="cad_conteudo">
 
@@ -34,8 +40,13 @@
         <label for="cad_senha">Senha:</label>
         <input type="password" id="cad_senha" name="senha">
       </div>
+       <div id="colunas3">
+        <label for="cad_confirmar">Senha:</label>
+        <input type="password" id="cad_senha" name="senha">
+      </div>
   
       <button id="cad_botao">Cadastrar</button>
+      <p class="trocar-link">Já tem uma conta? <a href="#" onclick="mostrarLogin()">Entrar</a></p>
     </div>
   
     <!-- Div do Login -->
@@ -58,8 +69,10 @@
         </div>
   
         <button id="login_botao">Entrar</button>
+        <p class="trocar-link">Não tem uma conta? <a href="#" onclick="mostrarCadastro()">Cadastre-se</a></p>
       </div>
     </div>
+
   </div>
   
 

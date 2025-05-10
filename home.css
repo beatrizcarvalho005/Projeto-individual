@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
     overflow-x: hidden;
     width: 100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -37,7 +38,8 @@ html, body {
     width: 100%;
     z-index: 1000;
     display: flex;
-    justify-content: flex-end; /* Alinha os itens à direita */
+    justify-content: flex-end;
+    /* Alinha os itens à direita */
     align-items: center;
     transition: background-color 0.4s ease, box-shadow 0.4s ease;
     border-bottom: 2px solid #444;
@@ -80,14 +82,28 @@ html, body {
     transition: width 0.3s ease;
 }
 
-.navbar-item a:hover::after,
-.navbar-item.active a::after {
+.navbar-item a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background-color: #00ff99;
+    transition: width 0.3s ease;
+}
+
+.navbar-item a:hover::after {
     width: 100%;
 }
 
-.navbar-item.active a {
-    color: #00ff99;
+
+.navbar-item a.atual::after {
+    width: 100%;
+    transition: none;
 }
+
+
 
 /* FUNDO PRINCIPAL */
 #imagem_card {
@@ -114,7 +130,7 @@ html, body {
 
 #imagem_card::after {
     content: "O ritmo que embala histórias, une gerações e celebra a verdadeira essência brasileira.";
-    font-size: 1.3em;
+    font-size: 1.9em;
     max-width: 600px;
     line-height: 1.6;
     color: #eee;
@@ -126,7 +142,7 @@ html, body {
     font-size: 38px;
     text-align: center;
     margin-top: 60px;
-    margin-bottom: 20px;
+    margin-bottom: 60px;
     position: relative;
 }
 
@@ -143,20 +159,23 @@ html, body {
 
 /* CONTEÚDO CARD */
 #card {
-    padding: 50px 20px;
+    padding: 60px 30px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 40px;
     width: 90%;
     margin: auto;
+    margin-top: 50px;
+    margin-bottom: 150px;
 }
 
 #lado_texto {
     flex: 1;
     min-width: 300px;
-    font-size: 20px;
+    font-size: 1.5rem;
     color: #ccc;
+    margin-right: 100px;
 }
 
 /* CARROSSEL */
@@ -167,6 +186,7 @@ html, body {
     margin-left: 80px;
     display: flex;
     overflow: hidden;
+    margin-top: 100px;
 }
 
 .circulo {
@@ -249,6 +269,7 @@ html, body {
 .quarto {
     display: none;
 }
+
 /* BOTÃO DE TROCA */
 #botao-trocar {
     background: none;
@@ -263,136 +284,132 @@ html, body {
     height: 46px;
 }
 
-/* SEÇÃO INSCREVA-SE */
+/* SEÇÃO INSCREVA-SE 
 #card_inscreva {
-    background-color: #1a1a1a;
+     background: linear-gradient(to right, #000000 0%, #cca9ef 100%); 
+     background-color: rgb(233, 183, 242); 
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(255,255,255,0.1);
+    box-shadow: 0 10px 30px rgba(93, 93, 93, 0.1);
     padding: 40px;
     margin: 80px auto;
     display: flex;
     gap: 40px;
-    align-items: center;
+    align-items: flex-start;
     max-width: 1100px;
     color: #eee;
+
 }
 
 #card_imagem_ins {
     width: 400px;
     height: 500px;
-    background: linear-gradient(rgba(0, 0, 0, 0.3), transparent), url('img/gif.gif');
+    background: linear-gradient(rgba(115, 115, 115, 0.3), transparent), url('img/gif.gif');
     background-size: cover;
     background-position: center;
     border-radius: 10px;
     flex-shrink: 0;
 }
 
+#card_coluna_texto {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 600px;
+}
+
 #card_texto_ins {
-    font-size: 18px;
+    font-size: 1.5rem;
     font-weight: 500;
     line-height: 1.8;
-    max-width: 600px;
     text-align: justify;
 }
+
+#card_inscreva_texto {
+ margin-top: 0px;
+    font-size: 20px;
+    text-align: start;
+    border-radius: 10px;
+    font-weight: bold;
+    color: #000;
+}
+ #card_inscreva_quadrado {
+     border: 6px solid rgb(0, 0, 0); 
+     padding: 14px;
+} */
+
+
 
 #missao {
     display: flex;
     justify-content: space-between;
-    gap: 0px;
-    margin: 40px;
-    padding: 20px 0;
-    margin-top: 100px;
-    margin-bottom: 100px;
-
+    gap: 30px;
+   max-width: 1400px;
+    margin: 40px auto;
+    flex-wrap: wrap; 
+    margin-bottom: 200px;
 }
 
-.item-missao_1 {
+.item-missao {
     flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    min-width: 360px;     
+    max-width: 420px; 
+    padding: 60px;
+    border-radius: 15px;
     text-align: center;
-    gap: 12px;
-    padding: 2px;
-    margin-left: 60px;
-
+    box-shadow: 1px 5px 15px #ffd700;
+    transition: transform 0.3s ease;
+  
 }
-.item-missao_2 {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 12px;
-    padding: 2px;
-
-}
-.item-missao_3 {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 12px;
-    padding: 2px;
-    margin-right: 60px;
-
+.item-missao:hover {
+    transform: translateY(-8px);
 }
 
 .icone-missao {
-    height: 60px;
-    width: 60px;
-    background-repeat: no-repeat;
-    background-size: contain;
+    width: 80px;
+    height: 80px;
+    background-size: cover;
     background-position: center;
+    margin: 0 auto 15px;
+    border-radius: 50%;
 }
 
 .titulo_missao {
-    text-transform: uppercase;
-    font-size: 16px;
-    font-weight: 600;
-    color: #00ffff;
-    margin-bottom: 5px;
-    text-align: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+
 }
 
 .texto-missao {
-    color: #ffffff;
-    font-size: 15px;
-    font-weight: normal;
-    max-width: 200px;
-    font-family: 'Josefin Sans', sans-serif;
-}
-
-#titulo_missao {
-    position: relative;
-    width: 100%;
+    font-size: 1.5rem;
+    color: #fffefe;
     text-align: left;
-    margin-left: 250px;
-    color: #00ffff;     
-    font-size: 24px;
+    line-height: 1.6;
+    hyphens: auto;
+}
+#titulo_missao {
+    font-size: 2rem;
     font-weight: bold;
-    margin-bottom: 20px;
-    margin-top: 80px;
+    text-align: center;
+    margin-top: 70px;
+    margin-bottom: 150px;
+    color: #ffd700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative; /* Necessário para posicionar o ::after corretamente */
 }
 
 #titulo_missao::after {
     content: "";
+    width: 60px;
+    height: 3px;
+    background-color: #ffd700;
     position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100px;
-    height: 2px;
-    background-color: #00ffff;
-    margin-top: 10px;
+    left: 50%;
+    bottom: -20px; /* Ajuste conforme o espaçamento desejado */
+    transform: translateX(-50%);
 }
 
-/* Efeito de "subir" ao passar o mouse */
-.icone-missao:hover {
-    transform: translateY(-10px);
-    /* Move a imagem para cima em 10px */
-    border-radius: 10px;
-}
 
 
 /* depoimentos */
@@ -407,7 +424,7 @@ html, body {
 
 #titulo_depo {
     color: #ff6d05;
-    font-size: 24px;
+    font-size: 2.1rem;
     font-weight: bold;
     text-align: center;
     padding: 15px 30px;
@@ -431,17 +448,18 @@ html, body {
 
 .depo-card-container {
     display: flex;
-    justify-content: center; /* Centraliza os cards */
+    justify-content: center;
     flex-wrap: wrap;
     gap: 30px;
+    /* Centraliza os cards */
 }
 
 /* Estilo de cada card */
 .depo-card {
-    background-color: #2a2828;
+    background-color: #4e1e00;
     border-radius: 20px;
     padding: 20px;
-    flex: 0 1 300px; /* Ocupa até 300px, mas encolhe se necessário */
+    flex: 0 1 300px;
     transition: transform 0.3s ease;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
@@ -458,7 +476,7 @@ html, body {
 }
 
 .texto_card {
-    font-size: 15px;
+    font-size: 1.0rem;
     color: #ffffff;
     line-height: 1.5;
 }
@@ -467,7 +485,7 @@ html, body {
 
 /* Rodapé */
 .rodape {
-    background-color: rgb(22, 22, 22); 
+    background-color: rgb(0, 0, 0);
     color: rgb(255, 255, 255);
     font-size: 14px;
     font-family: Helvetica, sans-serif;
@@ -477,7 +495,7 @@ html, body {
 
 .rodape a {
     text-decoration: none;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255); /* Ajuste a cor do link */
 }
 
 .rodape p {
@@ -487,76 +505,192 @@ html, body {
 /* Container do rodapé */
 .rodape-div {
     display: flex;
-    justify-content: space-between;
-    /* Adiciona espaçamento entre as colunas */
-    align-items: stretch;
+    justify-content: space-between; /* Distribui as colunas */
+    align-items: flex-start; /* Alinha as colunas ao topo */
     padding: 0 10px;
-
 }
 
 /* Colunas dentro do rodapé */
 #logo {
-    display: inline-block;
     width: 100px;
-    /* ajuste como preferir */
     height: 100px;
     background-image: url('img/re.png');
-    /* ajuste o caminho se necessário */
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     margin-bottom: 10px;
-    /* opcional */
 }
 
+/* Ajusta o tamanho das colunas */
 .rodape-div-1,
 .rodape-div-2,
 .rodape-div-3 {
     display: flex;
-    width: calc(100% / 3 - 20px);
+    flex-direction: column;
     padding: 10px;
 }
 
+/* Alinhamento do conteúdo nas colunas */
 .rodape-div-1 {
-    margin-left: 20px;
+    width: 33%; /* Primeira coluna ocupa 1/3 da largura */
+    text-align: center; /* Alinha o texto à esquerda */
 }
 
 .rodape-div-2 {
-    margin-left: 200px;
+    width: 33%; /* Segunda coluna ocupa 1/3 da largura */
+    text-align: center; /* Alinha o texto ao centro */
 }
 
 .rodape-div-3 {
-    margin-left: 60px;
+    width: 33%; /* Terceira coluna ocupa 1/3 da largura */
+    text-align: center; /* Alinha o texto à direita */
 }
 
 .rodape span {
     font-size: 20px;
     color: rgb(255, 255, 255);
     font-weight: bold;
+    display: inline-block;
+    margin-bottom: 10px; /* Espaço entre o título e o conteúdo */
 }
 
 /* Alinhamento do conteúdo nas colunas */
 .rodape-div-1 p,
 .rodape-div-2 p,
 .rodape-div-3 p {
-    font-size: 14px;
+font-size: 1.0rem;
 }
 
 .rodape-div-3 p a {
     color: rgb(255, 255, 255);
-    /* Define a cor do link */
+    /* A cor do link */
 }
 
 .rodape-div-3 p a:hover {
     text-decoration: underline;
-    /* Adiciona o efeito de sublinhado ao passar o mouse */
+    /* Efeito de sublinhado ao passar o mouse */
 }
 
-.rodape span {
-    font-size: 20px;
-    color: rgb(255, 255, 255);
+
+
+
+
+/* card da música */
+
+#musica_home {
+    display: flex;
+    justify-content: center;
+    /* Centraliza os cards horizontalmente */
+    align-items: center;
+    /* Centraliza verticalmente */
+    flex-direction: column;
+    /* Organiza os cards em coluna */
+    gap: 20px;
+    padding: 60px;
+    background-color: #170e21;
+}
+
+#musica_1,
+#musica_2,
+#musica_3,
+#musica_4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 700px;
+    height: 300px;
+    padding: 10px;
+    border-radius: 16px;
+
+}
+
+
+.spotify-embed {
+    border-radius: 12px;
+    width: 100%;
+    max-width: 100%;
+    height: 200px;
+    border: none;
+}
+
+
+#musica_titulo {
+    position: relative;
+    /* Necessário para o posicionamento absoluto do :after */
+    font-size: 3em;
     font-weight: bold;
-    display: inline-block;
-    margin-bottom: 10px;
-    /* Adiciona o espaço entre o título e os parágrafos */
+    color: #8000ff;
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 10px;
+    /* Deixa um espaço para a linha abaixo do título */
+
+}
+
+#musica_titulo:after {
+    content: "";
+
+    left: 0;
+    bottom: -4px;
+    /* Define a posição da linha abaixo do título */
+    width: 0;
+    /* Inicialmente a linha tem largura 0 */
+    height: 20px;
+    /* Define a altura da linha */
+    background-color: #ffc800;
+    /* Cor da linha */
+    transition: width 0.3s ease;
+    /* Transição suave */
+}
+
+#musica_titulo:hover:after {
+    width: 100%;
+    /* A linha vai expandir para 100% do título ao passar o mouse */
+}
+
+/* Estilo para o texto "Saber mais" */
+#musica_saber {
+    font-size: 2em;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 20px;
+    /* Espaço entre o último card e o texto */
+    padding: 10px;
+}
+
+/* Estilo do botão "Saber mais" */
+#musica_botao {
+    margin-top: 20px;
+    /* Espaço entre o texto e o botão */
+}
+
+#musica_botao button {
+    padding: 12px 25px;
+    background-color: #8000ff;
+    /* Cor do botão (verde do Spotify) */
+    color: white;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#musica_botao button:hover {
+    background-color: #996bc8;
+    /* Cor de hover do botão */
+}
+.icone-musical {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+      margin: -10px 0;
+}
+
+.icone-musical img {
+    width: 60px;
+    height: auto;
+    opacity: 0.7;
 }
