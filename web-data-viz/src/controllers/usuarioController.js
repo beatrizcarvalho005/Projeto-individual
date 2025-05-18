@@ -1,5 +1,5 @@
 var usuarioModel = require("../models/usuarioModel");
-var aquarioModel = require("../models/aquarioModel");
+
 
 function autenticar(req, res) {
     var email = req.body.emailServer;
@@ -17,7 +17,7 @@ function autenticar(req, res) {
 
                 if (resultadoAutenticar.length == 1) {
                     res.json({
-                        id: resultadoAutenticar[0].id,
+                        id_usuario: resultadoAutenticar[0].id_usuario,
                         email: resultadoAutenticar[0].email,
                         nome: resultadoAutenticar[0].nome
 
@@ -71,7 +71,76 @@ function cadastrar(req, res) {
     }
 }
 
+
+
+function respostas(req, res) {
+
+    var fkUsuario = req.body.fkusuarioServer;
+    var fkPergunta = req.body.fkPerguntaServer;
+    var alternativa_escolhida = req.body.alternativa_escolhidaServer;
+
+ usuarioModel.respostas(fkUsuario, fkPergunta, alternativa_escolhida)
+        .then(function (resultado) {
+            res.json(resultado);
+            
+        }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar o cadastro! Erro: ",
+                    erro.sqlMessage
+                );
+                res.sendStatus(200);
+
+            }
+        )
+}
+
+function resultados_quiz(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var pontuacaoFinal = req.body.pontuacaoFinalServer;
+    var porcentagem = req.body.porcentagemServer;
+    var fkUsuario = req.body.fkusuarioServer;
+
+
+    // Faça as validações dos valores
+    if (pontuacaoFinal == undefined) {
+        res.status(400).send("Seu pontuacaoFinal está undefined!");
+    } else if (porcentagem == undefined) {
+        res.status(400).send("Seu porcentagem está undefined!");
+    } else if (fkUsuario == undefined) {
+        res.status(400).send("Sua fkUsuario está undefined!");
+    }
+    else {
+
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.resultados_quiz(pontuacaoFinal, porcentagem, fkUsuario)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o quiz! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
+
+
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    respostas,
+    resultados_quiz 
+
 }

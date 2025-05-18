@@ -1,6 +1,11 @@
 /* Não usar pure white or pure black: https://uxplanet.org/basicdesign-never-use-pure-black-in-typography-36138a3327a6 */
 /* The 4-point grid system: https://medium.com/@sainzkike/controlling-spacing-in-design-systems-multiple-spacing-9bf1afec87f */
-
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #000000;
+}
 :root {
     --primary-brand-color: #ED145B;
     --secondary-brand-color: #0762C8;
@@ -20,6 +25,7 @@
 
 body {
     color: var(--new-black);
+    background-color: #000000;
     background-color: var(--new-white);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -27,17 +33,19 @@ body {
 button {
     font-family: monospace;
     font-weight: bold;
-    text-align: center;
     align-items: center;
+    background-color: #CCCCCC;
 }
 
 .flex-colunar {
     display: flex;
     flex-direction: column;
+    
 }
 
 .width-fit-content {
     width: fit-content;
+    color: #E8E8E8;
 }
 
 .border-primary {
@@ -73,4 +81,25 @@ button {
 
 .text-new-gray {
     color: var(--new-gray);
+}
+.botao_primeiro{
+    align-self: center;
+}
+#pontuacaoEJogo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+#spanCertas{
+    color: #ffffff;
+}
+#spanErradas{
+    color: #ffffff;
+}
+
+#menu{
+    background-color: #0762C8;
+    color: #CCCCCC;
 }

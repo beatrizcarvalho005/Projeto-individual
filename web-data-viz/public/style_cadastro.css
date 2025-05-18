@@ -24,6 +24,7 @@ body {
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  position: relative;
 }
 
 /* Formulário de Cadastro */
@@ -38,6 +39,17 @@ body {
   border-radius: 12px; /* Adicionando borda para uniformidade */
   height: auto;  /* Deixe a altura do card se ajustar ao conteúdo */
 }
+#cad_conteudo input {
+  width: 80%;
+ margin: 0 auto;
+}
+#colunas label,
+#colunas2 label,
+#colunas3 label {
+  text-align: left;
+  width: 80%;
+  margin: 0 auto;
+}
 
 /* Formulário de Login */
 #img {
@@ -51,6 +63,7 @@ body {
   color: white;
   border-radius: 12px; /* Adicionando borda para uniformidade */
   height: auto;  /* Deixe a altura do card se ajustar ao conteúdo */
+  z-index: 0;
 }
 
 /* Títulos */
@@ -116,6 +129,7 @@ button {
   font-size: 14px;
   color: #ccc;
   text-align: center;
+  cursor: pointer;
 }
 
 .trocar-link a {
@@ -152,4 +166,22 @@ button {
 #img_cada {
   position: absolute;
   transform: translateX(0%);
+}
+
+#imagem_login{
+  background-image: url('img/cad2.jpg');
+  width: 600px;
+  height: 100vh;
+  
+
+     
+  position: absolute;
+  left: 0;
+  z-index: 1;
+}
+
+.eye-icon {
+  cursor: pointer; /* Indica que o ícone é clicável */
+  font-size: 1.2em; /* Ajuste o tamanho do ícone */
+  padding: 0.3em; /* Adiciona espaço ao redor do ícone */
 }

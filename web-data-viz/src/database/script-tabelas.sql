@@ -6,57 +6,72 @@
 comandos para mysql server
 */
 
-CREATE DATABASE aquatech;
+use pagodeando;
+show tables;
 
-USE aquatech;
+select * from usuario;
 
-CREATE TABLE empresa (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	razao_social VARCHAR(50),
-	cnpj CHAR(14),
-	codigo_ativacao VARCHAR(50)
-);
+describe usuario;
 
-CREATE TABLE usuario (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(50),
-	email VARCHAR(50),
-	senha VARCHAR(50),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
-);
+create table perguntas_quiz (
+idQuiz int primary key auto_increment,
+pergunta varchar(100));
 
-CREATE TABLE aviso (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	titulo VARCHAR(100),
-	descricao VARCHAR(150),
-	fk_usuario INT,
-	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
-);
+truncate table usuario;
 
-create table aquario (
-/* em nossa regra de negócio, um aquario tem apenas um sensor */
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	descricao VARCHAR(300),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
-);
+create table alternativas_quiz (
+idAlternativa int primary key auto_increment,
+opcao char(1) , 
+enunciado varchar(100) ,
+alternativa_correta boolean , 
+fk_perguntas int ,
+constraint fk_perguntas foreign key (fk_perguntas) references perguntas_quiz(idquiz));
 
-/* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
+create table respostas (
+idrespostas int primary key auto_increment , 
+alternativa_escolhida int ,
+fkUsuario int ,
+fkPerguntas int , 
+fkAlternativas int , 
+constraint fkUsuario foreign key (fkUsuario) references usuario (id_usuario),
+constraint fkPerguntas foreign key (fkPerguntas) references perguntas_quiz(idquiz) , 
+constraint fkAlternativas foreign key (fkAlternativas) references alternativas_quiz(idAlternativa));
 
-create table medida (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	dht11_umidade DECIMAL,
-	dht11_temperatura DECIMAL,
-	luminosidade DECIMAL,
-	lm35_temperatura DECIMAL,
-	chave TINYINT,
-	momento DATETIME,
-	fk_aquario INT,
-	FOREIGN KEY (fk_aquario) REFERENCES aquario(id)
-);
+insert into perguntas_quiz (pergunta) values 
+( "Em que ano surgiu o pagode?") , 
+("Onde surgiu o pagode?"), 
+("Onde foi criado o pagode?"),
+("Qual o principal instrumento usado no pagode?"); 
 
-insert into empresa (razao_social, codigo_ativacao) values ('Empresa 1', 'ED145B');
-insert into empresa (razao_social, codigo_ativacao) values ('Empresa 2', 'A1B2C3');
-insert into aquario (descricao, fk_empresa) values ('Aquário de Estrela-do-mar', 1);
-insert into aquario (descricao, fk_empresa) values ('Aquário de Peixe-dourado', 2);
+insert into alternativas_quiz (opcao, enunciado, alternativa_correta , fk_perguntas) values
+("A" , "1978" , true , 1) ,  
+("B" , "1972" , false , 1) ,  
+("C" , "1982" , false , 1) ,  
+("D" , "1990" , false , 1) ,  
+
+("A" , "São Paulo" , false , 2) ,  
+("B" , "Rio de Janeiro" , true , 2) ,  
+("C" , "Minas Gerais" , false , 2) ,  
+("D" , "Salvador" , false , 2) , 
+
+("A" , "Na rua" , false , 3) ,  
+("B" , "No bar" , false , 3) ,  
+("C" , "No fundo de quintal" , true , 3) ,  
+("D" , "Na praça" , false , 3) , 
+
+("A" , "Pandeiro" , true , 4) ,  
+("B" , "Berimbau" , false , 4) ,  
+("C" , "Violão" , false , 4) ,  
+("D" , "Cavaquinho" , false , 4) ;
+
+select p.pergunta as pergunta , 
+a.opcao as opção , 
+a.enunciado as alternativa , 
+  case 
+        when alternativa_correta = true 
+        then 'Correta'
+        else 'Incorreta'
+    end as status_alternativa
+from alternativas_quiz as a
+join perguntas_quiz as p
+on a.fk_perguntas = p.idQuiz;

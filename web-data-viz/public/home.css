@@ -284,60 +284,6 @@ body {
     height: 46px;
 }
 
-/* SEÇÃO INSCREVA-SE 
-#card_inscreva {
-     background: linear-gradient(to right, #000000 0%, #cca9ef 100%); 
-     background-color: rgb(233, 183, 242); 
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(93, 93, 93, 0.1);
-    padding: 40px;
-    margin: 80px auto;
-    display: flex;
-    gap: 40px;
-    align-items: flex-start;
-    max-width: 1100px;
-    color: #eee;
-
-}
-
-#card_imagem_ins {
-    width: 400px;
-    height: 500px;
-    background: linear-gradient(rgba(115, 115, 115, 0.3), transparent), url('img/gif.gif');
-    background-size: cover;
-    background-position: center;
-    border-radius: 10px;
-    flex-shrink: 0;
-}
-
-#card_coluna_texto {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    max-width: 600px;
-}
-
-#card_texto_ins {
-    font-size: 1.5rem;
-    font-weight: 500;
-    line-height: 1.8;
-    text-align: justify;
-}
-
-#card_inscreva_texto {
- margin-top: 0px;
-    font-size: 20px;
-    text-align: start;
-    border-radius: 10px;
-    font-weight: bold;
-    color: #000;
-}
- #card_inscreva_quadrado {
-     border: 6px solid rgb(0, 0, 0); 
-     padding: 14px;
-} */
-
-
 
 #missao {
     display: flex;
@@ -576,34 +522,28 @@ font-size: 1.0rem;
 
 
 /* card da música */
-
 #musica_home {
     display: flex;
-    justify-content: center;
-    /* Centraliza os cards horizontalmente */
-    align-items: center;
-    /* Centraliza verticalmente */
-    flex-direction: column;
-    /* Organiza os cards em coluna */
+    flex-direction: column; /* Deixa os itens em coluna */
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
     gap: 20px;
     padding: 60px;
     background-color: #170e21;
+    min-height: 100vh; /* Faz o container ocupar 100% da altura da tela */
 }
 
-#musica_1,
-#musica_2,
-#musica_3,
-#musica_4 {
+.musica_card {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    width: 100%;
-    max-width: 700px;
-    height: 300px;
-    padding: 10px;
-    border-radius: 16px;
+    width: 650px; /* Tamanho de cada card */
+    gap: 10px;
 
+    border-radius: 12px;
+    padding: 10px;
 }
+
 
 
 .spotify-embed {
@@ -630,7 +570,6 @@ font-size: 1.0rem;
 
 #musica_titulo:after {
     content: "";
-
     left: 0;
     bottom: -4px;
     /* Define a posição da linha abaixo do título */
@@ -685,12 +624,15 @@ font-size: 1.0rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px 0;
-      margin: -10px 0;
+    background-color: #292038;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    margin-right: 20px; /* Espaço entre o ícone e o conteúdo */
 }
 
 .icone-musical img {
-    width: 60px;
+    width: 40px;
     height: auto;
-    opacity: 0.7;
+    opacity: 0.9;
 }

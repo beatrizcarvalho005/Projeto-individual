@@ -6,13 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cadastro</title>
   <link rel="stylesheet" href="style_cadastro.css">
-</head>  <link rel="shortcut icon" type="imagex/png" href="./img/logo.png">
+</head>
+<link rel="shortcut icon" type="imagex/png" href="./img/logo.png">
 
 <body>
 
-  <a href="home.html" id="voltar-home" title="Voltar para a página inicial">
-    &#8592; Início
-  </a>
+  <a href="index.html" id="voltar-home" title="Voltar para a página inicial"> &#8592; Início </a>
 
   <div id="cad_tudo">
     <!-- Div do Cadastro -->
@@ -24,31 +23,56 @@
       <div id="cad_titulo">
         <h2>Cadastro</h2>
       </div>
-  
+
       <!-- Formulário de Cadastro -->
       <div id="colunas">
         <label for="cad_nome">Nome:</label>
-        <input type="text" id="cad_nome" name="nome">
+        <input type="text" id="cad_nome" name="nome" placeholder="Ex: Beatriz">
       </div>
-  
+
       <div id="colunas2">
         <label for="cad_email">Email:</label>
-        <input type="email" id="cad_email" name="email">
+        <input type="email" id="cad_email" name="email" placeholder="Ex: beatriz@gmail.com">
       </div>
-  
+
       <div id="colunas3">
         <label for="cad_senha">Senha:</label>
-        <input type="password" id="cad_senha" name="senha">
+
+        <!-- Container para o input e o ícone -->
+        <div style="position: relative; width: 80%; margin: 0 auto;">
+          <input type="password" id="cad_senha" name="senha" style="width: 100%; padding-right: 40px;"
+            placeholder="Abcd123*">
+
+
+          <span onclick="olho_senha1()"
+            style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;">
+            <img id="id_icone" src="img/olho-nao.png" width="20"> </span>
+        </div>
+
       </div>
-       <div id="colunas3">
-        <label for="cad_confirmar">Senha:</label>
-        <input type="password" id="cad_senha2" name="senha">
+
+      <div id="colunas3">
+        <label for="cad_senha2">Confirmar Senha:</label>
+
+        <!-- Container para o input e o ícone -->
+        <div style="position: relative; width: 80%; margin: 0 auto;">
+          <input type="password" id="cad_senha2" name="senha" style="width: 100%; padding-right: 40px;">
+
+          <!-- Ícone de olho com SVG -->
+          <span onclick="olho_senha2()"
+            style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;">
+            <img id="id_icone2" src="img/olho-nao.png" width="20"> </span>
+        </div>
       </div>
-  
+
+
+
       <button id="cad_botao" onclick="cadastrar()">Cadastrar</button>
-      <p class="trocar-link">Já tem uma conta? <a href="#" onclick="mostrarLogin()">Entrar</a></p>
+      <p class="trocar-link">Já tem uma conta? <a onclick="mostrarLogin()">Entrar</a></p>
     </div>
-  
+
+    <div id="imagem_login"></div>
+
     <!-- Div do Login -->
     <div id="img">
 
@@ -57,60 +81,158 @@
         <div id="login_titulo">
           <h2>Login</h2>
         </div>
-  
+
         <div id="login_colunas">
           <label for="login_email">Email:</label>
-          <input type="email" id="login_email" name="email">
+          <input type="email" id="log_email" name="email">
         </div>
-  
+
         <div id="login_colunas2">
+
           <label for="login_senha">Senha:</label>
-          <input type="password" id="login_senha" name="senha">
+          <!-- Container para o input e o ícone -->
+          <div style="position: relative; width: 100%; margin: 0 auto;">
+            <input type="password" id="log_senha" name="senha" style="width: 100%; padding-right: 80px;">
+
+
+            <!-- Ícone de olho com SVG -->
+            <span onclick="olho_senha3()"
+              style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;">
+              <img id="id_icone3" src="img/olho-nao.png" width="20"> </span>
+          </div>
         </div>
-  
+
+
         <button id="login_botao" onclick="autenticar()">Entrar</button>
-        <p class="trocar-link">Não tem uma conta? <a href="#" onclick="mostrarCadastro()">Cadastre-se</a></p>
+        <p class="trocar-link">Não tem uma conta? <a onclick="mostrarCadastro()">Cadastre-se</a></p>
       </div>
     </div>
 
   </div>
-  
+
 
 </body>
 
 </html>
 <script>
+
+  function mostrarCadastro() {
+    var ax_imagem = document.getElementById("imagem_login")
+    ax_imagem.style.transition = "2s ease"
+    ax_imagem.style.transform = "translateX(100%)"
+
+
+  }
+
+  function mostrarLogin() {
+    var ax_imagem2 = document.getElementById("imagem_login")
+    ax_imagem2.style.transition = "2s ease"
+    ax_imagem2.style.transform = "translateX(0%)"
+
+  }
+</script>
+
+
+<script>
+
   function cadastrar() {
-  // aguardar();
+    var ax_imagem2 = document.getElementById("imagem_login")
 
-  //Recupere o valor da nova input pelo nome do id
-  // Agora vá para o método fetch logo abaixo
-  var nomeVar = cad_nome.value;
-  var emailVar = cad_email.value;
-  var senhaVar = cad_senha.value;
-  var confirmacaoSenhaVar = cad_senha2.value;
 
-  // Verificando se há algum campo em branco
-  if (
-    nomeVar == "" ||
-    emailVar == "" ||
-    senhaVar == "" ||
-    confirmacaoSenhaVar == "" 
-  ) {
-    alert 
-      ("Existem campos em branco");
-    return
-  }
-  if (senhaVar != confirmacaoSenhaVar) {
-      alert ("Senhas não coincidem")
+    // decraclaração das variaveies booleanas  para validar a senha
 
-      return 
-  }
+    var temMaiuscula = false;
+    var temMinuscula = false;
+    var temNumero = false;
+    var temEspecial = false;
 
-  fetch("/usuarios/cadastrar", {
+    // variaveis contendo as regras para a senha
+    var caracteresEspeciais = "!@#$%^&*()_+-=[]{};':\"\\|,.<>/?";
+    var numeros = "0123456789";
+    var letrasMinusculas = "abcdefghijklmnopqrstuvwxyz";
+    var letrasMaiusculas = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+
+
+
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var nomeVar = cad_nome.value;
+    var emailVar = cad_email.value;
+    var senhaVar = cad_senha.value;
+    var confirmacaoSenhaVar = cad_senha2.value;
+
+
+
+    // varre a string 'senha' aplicando a verificação de todas as regras da senha 
+    for (var i = 0; i < senhaVar.length; i++) {
+      var caracter = senhaVar[i];
+
+      if (letrasMaiusculas.includes(caracter)) {
+        temMaiuscula = true;
+
+      } else if (letrasMinusculas.includes(caracter)) {
+        temMinuscula = true;
+
+      } else if (numeros.includes(caracter)) {
+        temNumero = true;
+
+      } else if (caracteresEspeciais.includes(caracter)) {
+        temEspecial = true;
+      }
+    }
+
+
+
+
+    // Verificando se há algum campo em branco
+    if (
+      nomeVar == "" ||
+      emailVar == "" ||
+      senhaVar == "" ||
+      confirmacaoSenhaVar == "") {
+      alert
+        ("Existem campos em branco");
+      return
+    }
+    if (senhaVar != confirmacaoSenhaVar) {
+      alert("Senhas não coincidem")
+
+      return
+    }
+    if (senhaVar.length !== 8 || confirmacaoSenhaVar.length !== 8) {
+      alert("A senha deve ter 8 caracteres");
+      return;
+
+    }
+    if (!temMaiuscula) {
+      alert('A senha deve conter pelo menos uma letra maiúscula.');
+      return
+
+    } if (!temMinuscula) {
+      alert('A senha deve conter pelo menos uma letra minúscula.');
+      return
+
+    } if (!temNumero) {
+      alert('A senha deve conter pelo menos um número.');
+      return
+
+    } if (!temEspecial) {
+      alert('A senha deve conter pelo menos um caractere especial (ex: !@#$%).');
+      return
+
+    }
+
+    if (!emailVar.includes("@")) {
+      alert("Email inválido")
+      return
+    }
+
+    fetch("/usuarios/cadastrar", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "Cache-Control": "no-store"
       },
       body: JSON.stringify({
         // crie um atributo que recebe o valor recuperado aqui
@@ -125,13 +247,16 @@
 
         if (resposta.ok) {
 
-          alert 
-        ("Cadastro realizado com sucesso!");
+          alert("Cadastro realizado com sucesso!");
 
+          document.getElementById("form-cadastro").reset();
 
-         
+          
+          ax_imagem2.style.transition = "2s ease"
+          ax_imagem2.style.transform = "translateX(0%)"
+
         } else {
-          alert ("Houve um erro ao tentar realizar o cadastro!");
+          alert("Houve um erro ao tentar realizar o cadastro!");
         }
       })
       .catch(function (resposta) {
@@ -141,5 +266,92 @@
     return false;
   }
 
-  
+  function autenticar() {
+
+    var emailVar = log_email.value;
+    var senhaVar = log_senha.value;
+
+    if (emailVar == "" || senhaVar == "") {
+      alert("Preencha todos os campos.");
+      return;
+    }
+
+    fetch("/usuarios/autenticar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        emailServer: emailVar,
+        senhaServer: senhaVar,
+      }),
+    })
+      .then((resposta) => {
+        if (resposta.ok) {
+          resposta.json().then((json) => {
+            console.log(json);
+
+            
+            sessionStorage.setItem("NOME_USUARIO", json.nome);
+            sessionStorage.setItem("idusuario", json.id_usuario);
+            //  Armazenando no Local Storage (caso deseje que fique salvo após fechar o navegador)
+            // localStorage.setItem("NOME_USUARIO", json.nome);
+
+            alert("Login realizado com sucesso!");
+            window.location.href = "quiz.html"; // redireciona após login
+          });
+        } else {
+          alert("Usuário ou senha inválidos.");
+        }
+      })
+      .catch((erro) => {
+        console.log(`#ERRO: ${erro}`);
+      });
+
+    return false;
+  }
+
+  function olho_senha1() {
+    const senha = document.getElementById("cad_senha");
+    const icone = document.getElementById("id_icone");
+
+    if (senha.type === "password") {
+      senha.type = "text"; // Mostra a senha
+      icone.src = "img/olho-sim.png"; // Ícone de "olho fechado"
+    } else {
+      senha.type = "password"; // Oculta a senha
+      icone.src = "img/olho-nao.png"; // Ícone de "olho aberto"
+    }
+  }
+
+  function olho_senha2() {
+    const senha2 = document.getElementById("cad_senha2");
+    const icone2 = document.getElementById("id_icone2");
+
+    if (senha2.type === "password") {
+      senha2.type = "text"; // Mostra a senha
+      icone2.src = "img/olho-sim.png"; // Ícone de "olho fechado"
+    } else {
+      senha2.type = "password"; // Oculta a senha
+      icone2.src = "img/olho-nao.png"; // Ícone de "olho aberto"
+    }
+  }
+
+
+
+  function olho_senha3() {
+    const senha3 = document.getElementById("log_senha");
+    const icone3 = document.getElementById("id_icone3");
+
+    if (senha3.type === "password") {
+      senha3.type = "text"; // Mostra a senha
+      icone3.src = "img/olho-sim.png"; // Ícone de "olho fechado"
+    } else {
+      senha3.type = "password"; // Oculta a senha
+      icone3.src = "img/olho-nao.png"; // Ícone de "olho aberto"
+    }
+  }
+
+
+
 </script>

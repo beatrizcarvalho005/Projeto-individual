@@ -5,18 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exemplo - Quiz</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
 </head>
 
 
-<body onload="onloadEsconder()">
-    <div id="pontuacaoEJogo">
-        <button id="btnIniciarQuiz" onclick="iniciarQuiz()">INICIAR QUIZ</button>
+<body onload="onloadEsconder()"> 
+    <!-- onload = só ocorre quando o elemento onload é totalmente carregado / ou seja a pontuação final -->
 
-        <div id="pontuacao" class="flex-colunar width-fit-content border-primary" > 
+    <div id="pontuacaoEJogo">  <!-- div tudo  -->
+    
+            <div id="menu"> 
+                
+            </div>
+
+      <button id="btnIniciarQuiz" class="botao_primeiro" onclick="iniciarQuiz()">INICIAR QUIZ</button>  <!-- botão iniciar  -->
+
+        <div id="pontuacao" class="flex-colunar width-fit-content border-primary" style="display: none;">
             <div id="pontuacaoDuranteJogo" class="flex-colunar padding-8">
-                <span class="width-fit-content">Quantidade de acertos: <span id="spanCertas"></span></span>
-                <span class="width-fit-content">Quantidade de erros: <span id="spanErradas"></span></span>
+                <span class="width-fit-content">Quantidade de acertos: <span id="spanCertas"></span></span> <!-- texto   -->
+                <span class="width-fit-content">Quantidade de erros: <span id="spanErradas"></span></span>  <!-- texto  -->
             </div>
             <div id="pontuacaoFinalJogo" class="flex-colunar padding-8">
                 <span id="pontuacaoFinal" class="width-fit-content">Pontuação Final:
@@ -26,7 +33,7 @@
             </div>
         </div>
 
-        <div id="jogo" class="width-fit-content flex-colunar border-secondary">
+        <div id="jogo" class="width-fit-content flex-colunar border-secondary" style="display: none;">
 
             <div id="infoQuestao" class="padding-8">
                 <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de <span id="qtdQuestoes"></span>
@@ -61,7 +68,7 @@
             </div>
 
             <div id="botoes" class="flex-colunar padding-8">
-                <button onclick="submeter()" id="btnSubmeter">Submeter resposta</button>
+                <button onclick="submeter()" id="btnSubmeter">Responder</button>
                 <button onclick="avancar()" id="btnProx" disabled>Avançar para próxima questão</button>
                 <!-- <button onclick="finalizar()" id="btnConcluir" disabled>Finalizar Quiz</button> -->
                 <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
@@ -69,6 +76,7 @@
 
         </div>
     </div>
+
 </body>
 
 </html>
@@ -76,30 +84,39 @@
     const listaDeQuestoes = [
 
         {
-            pergunta: "Qual mês tem 30 dias?",
-            alternativaA: "Janeiro",
-            alternativaB: "Dezembro",
-            alternativaC: "Junho",
-            alternativaD: "Agosto",
+            pergunta: "Em que ano surgiu o pagode?",
+            alternativaA: "1978",
+            alternativaB: "1972",
+            alternativaC: "1982",
+            alternativaD: "1990",
+            alternativaCorreta: "alternativaA"
+        },
+
+        {
+            pergunta: "Onde surgiu o pagode?",
+            alternativaA: "São Paulo",
+            alternativaB: "Rio de Janeiro",
+            alternativaC: "Minas Gerais",
+            alternativaD: "Salvador",
+            alternativaCorreta: "alternativaB"
+        },
+
+        {
+            pergunta: "Onde foi criado o pagode?",
+            alternativaA: "Na rua",
+            alternativaB: "No bar",
+            alternativaC: "Fundo de Quintal",
+            alternativaD: "Na praça",
             alternativaCorreta: "alternativaC"
-        },
-
+        } , 
+        
         {
-            pergunta: "Quantas horas tem em um dia?",
-            alternativaA: "30 horas",
-            alternativaB: "38 horas",
-            alternativaC: "48 horas",
-            alternativaD: "24 horas",
-            alternativaCorreta: "alternativaD"
-        },
-
-        {
-            pergunta: "Qual destes números é ímpar?",
-            alternativaA: "Dez",
-            alternativaB: "Doze",
-            alternativaC: "Oito",
-            alternativaD: "Onze",
-            alternativaCorreta: "alternativaD"
+            pergunta: "Qual o principal instrumento usado no pagode?",
+            alternativaA: "Pandeiro",
+            alternativaB: "Berimbau",
+            alternativaC: "Violão",
+            alternativaD: "Cavaquinho",
+            alternativaCorreta: "alternativaA"
         }
 
     ]
@@ -259,15 +276,15 @@
         const porcentagemFinalDeAcertos = pontuacaoFinal / quantidadeDeQuestoes
 
         if (porcentagemFinalDeAcertos <= 0.3) {
-            textoParaMensagemFinal = "Parece que você não estudou..."
+            textoParaMensagemFinal = "Parece que você não conhece muito sobre pagode..."
             classComCoresParaMensagemFinal = "text-danger-with-bg"
         }
         else if (porcentagemFinalDeAcertos > 0.3 && porcentagemFinalDeAcertos < 0.9) {
-            textoParaMensagemFinal = "Pode melhorar na próxima, hein!"
+            textoParaMensagemFinal = "Humm, você precisa ir mais para um pagodinho!"
             classComCoresParaMensagemFinal = "text-warning-with-bg"
         }
         else if (porcentagemFinalDeAcertos >= 0.9) {
-            textoParaMensagemFinal = "Uau, parabéns!"
+            textoParaMensagemFinal = "Uau, você realmente gosta muito de pagode!"
             classComCoresParaMensagemFinal = "text-success-with-bg"
         }
 

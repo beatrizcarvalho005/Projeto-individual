@@ -1,0 +1,381 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/fundo_home.jpg');
+  background-size: cover;
+
+}
+
+/* 
+  Estilização da barra de navegação lateral: 
+  - Largura inicial e altura total da tela;
+  - Cor de fundo;
+  - padding interno para espaçamento;
+  - Barra de rolagem apenas vertical (caso o conteúdo ultrapasse a altura);
+  - Adiciona uma sombra lateral para destaque;
+  - Define a posição fixa no canto superior esquerdo;
+  - Animação expandir (0.5s);
+*/
+nav.menu-lateral {
+  width: 85px;
+  height: 100vh;
+  background-color: rgb(156, 156, 155);
+  padding: 20px;
+  overflow-y: auto;
+  box-shadow: 3px 0 0 rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  transition: width 0.5s ease;
+}
+
+/* 
+  Botão de expandir a barra lateral:
+  - Alinha os itens no centro verticalmente;
+  - Define um espaçamento entre ícone e texto;
+  - Adiciona margem inferior para separar dos outros elementos;
+  - Muda o cursor ao passar o mouse.
+*/
+.btn-expandir {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 45px;
+  cursor: pointer;
+}
+
+/* 
+  Remove o estilo padrão dos estilo da lista 
+  e remove qualquer padding à esquerda.
+*/
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+/* 
+  Estilo dos itens do menu lateral:
+  - Define uma transição suave ao mudar de cor;
+  - Adiciona espaçamento inferior entre os itens.
+*/
+ul li.item-menu {
+  transition: background-color 0.2s ease;
+  margin-bottom: 15px;
+}
+
+/* 
+  Define a cor de fundo dos itens que estão ativos/selecionados.
+*/
+ul li.ativo {
+  background-color: rgb(70, 70, 70);
+  color: white;
+}
+
+/* 
+  Muda a cor de fundo dos itens ao passar o mouse (hover).
+*/
+ul li.item-menu:hover {
+  background-color: rgb(35, 35, 37);
+}
+
+/* 
+  Estilo dos links internos dos itens do menu:
+  - Alinha o ícone e o texto ao centro;
+  - Define um espaçamento entre eles;
+  - Remove o sublinhado dos links;
+  - Define cor branca para o texto;
+  - Adiciona um padding para aumentar a área clicável;
+  - Adiciona borda arredondada;
+  - Transição suave ao mudar de cor no hover.
+*/
+ul li.item-menu a {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+/* 
+  Muda a cor de fundo dos links ao passar o mouse (hover).
+*/
+ul li.item-menu a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* 
+  Estilo da div de ícones:
+  - Centraliza o ícone vertical e horizontalmente.
+*/
+.icone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 
+  Estilo do texto ao lado do ícone:
+  - Define um tamanho de fonte maior;
+  - Adiciona padding para espaçamento.
+*/
+.texto-link {
+  font-size: 25px;
+  padding: 10px;
+}
+
+/* 
+  Estilo dos ícones dentro do link:
+  - Aumenta o tamanho dos ícones;
+  - Adiciona uma pequena margem para afastar do texto.
+*/
+ul li.item-menu a .icone>i {
+  font-size: 30px;
+  margin-left: 10px;
+}
+
+/* 
+  Define o estilo do menu lateral quando está expandido:
+  - Aumenta a largura para 300px.
+*/
+nav.menu-lateral.expandir {
+  width: 300px;
+}
+
+/* 
+  Sair - 'margem-extra':
+  - Adiciona um espaçamento superior para descer o item;
+  - Empurra o item mais para a direita;
+  - Define a mesma cor de fundo da barra lateral.
+*/
+.margem-extra {
+  margin-top: 50px;
+  margin-left: 100px;
+  background-color: rgb(156, 156, 155);
+}
+
+ul li.margem-extra a:hover {
+  background-color: transparent;
+}
+
+/* Centraliza o conteúdo vertical e horizontalmente e coloca o texto abaixo do ícone */
+li.item-menu.pessoa {
+    display: flex;
+    flex-direction: column; /* Coloca o ícone em cima e o texto embaixo */
+    align-items: center;    /* Centraliza horizontalmente */
+    justify-content: center; /* Centraliza verticalmente */
+    height: 100px;           /* Define uma altura para o card */
+      background-color: rgb(156, 156, 155);
+}
+
+li.item-menu.pessoa .texto-link {
+    margin-top: 5px; /* Um pequeno espaço entre o ícone e o texto */
+    font-size: 18px;
+}
+
+
+/* Seleciona o card específico com a classe 'pessoa' */
+ul li.item-menu.pessoa {
+    transition: none; /* Remove a transição */
+}
+
+ul li.item-menu.pessoa:hover {
+    background-color: transparent; /* Não muda a cor */
+}
+
+
+/* quiz */
+.bloco {
+  margin-top: 100px;
+  padding: 100px;
+  height: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgb(0, 0, 0);
+  border-radius: 5px;
+  max-width: 800px;
+  position: relative;
+  transition: background-color 0.3s ease;
+  color: white;
+  overflow: auto;
+}
+
+
+#conta {
+  color: rgb(255, 238, 0);
+  display: block;
+}
+
+
+/* quiz */
+
+#quiz {
+  color: aqua;
+}
+
+button:hover {
+  background-color: #25b1a6;
+}
+
+button {
+  margin-top: 100px;
+  padding: 12px;
+  background-color: #edd5d5;
+  border: none;
+  border-radius: 6px;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+
+}
+
+#pontuacao,
+#jogo {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  /* Espaço entre os itens internos */
+  border-radius: 8px;
+  width: 100%;
+  max-width: 1500px;
+  /* Card largo */
+  max-height: 500px;
+  font-size: 20px;
+  min-height: 200px;
+  /* Aumenta a altura mínima do card */
+  padding: 24px;
+  /* Espaçamento interno maior */
+  /* Texto um pouco maior */
+}
+
+
+#pontuacao {
+  border: 2px solid #c2185b;
+
+}
+
+#jogo {
+  border: 2px solid #1565c0;
+
+}
+
+#quiz {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  /* Espaço entre as seções */
+  padding: 40px;
+}
+
+#botoes button {
+  margin: 4px 0;
+  padding: 6px 10px;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#btnProx:disabled,
+#btnTentarNovamente:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+#btnSubmeter {
+  background-color: #e0e0e0;
+}
+
+.option {
+  margin-left: 4px;
+}
+
+input[type="radio"] {
+  margin-right: 4px;
+  accent-color: #1565c0;
+}
+
+#opcoes {
+  display: flex;
+  flex-direction: column;
+  /* Organiza em coluna */
+  gap: 8px;
+  /* Espaço entre as opções */
+}
+
+#opcoes span {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+
+#opcoes label {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+#spanQuestaoExibida {
+  color: #02bcb5;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+#infoAlternativas span,
+#infoQuestao span {
+  color: #ffffff;
+  /* Cor do texto secundário */
+  font-size: 16px;
+  font-style: italic;
+}
+
+/* Cor dos textos de acertos e erros */
+#pontuacaoDuranteJogo span {
+  color: #ffffff;
+
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Cor do texto 'Pontuação Final' */
+#pontuacaoFinal {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* Cor da mensagem final */
+#msgFinal {
+  color: #f228a1;
+  font-size: 20px;
+  font-style: italic;
+  margin-top: 4px;
+  display: block;
+}
+
+
+/* dash */
+
+
+
+/* Ocultar e exibir seções */
+.conteudo-secao {
+  font-size: 30px;
+  position: relative;
+  right: 80px;
+  top: -80px;
+  display: none;
+}
