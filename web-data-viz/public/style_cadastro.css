@@ -172,9 +172,6 @@ button {
   background-image: url('img/cad2.jpg');
   width: 600px;
   height: 100vh;
-  
-
-     
   position: absolute;
   left: 0;
   z-index: 1;

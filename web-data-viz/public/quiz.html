@@ -6,26 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="quiz.css">
     <link rel="shortcut icon" type="imagex/png" href="./img/logo.png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Quiz</title>
 </head>
 
 <body>
+
     <div class="tudo">
+
+
         <nav class="menu-lateral">
+
             <div class="btn-expandir">
                 <img src="./img/menu-aberto (1).png" alt="" style="height: 50px; width: 50px;">
                 <i class="lista" id="btn_expandir"></i>
             </div>
+
 
             <ul>
                 <li class="item-menu pessoa">
                     <span class="icone">
                         <img src="./img/icone_Conta.png" alt="" style="height: 30px; width: 30px;">
                     </span>
-                    <span class="texto-link">Olá, <span id="nomeUsuarioDisplay">usuário</span>
+                    <span class="texto-link">Olá, <span id="nomeUsuario">usuário</span>
                 </li>
 
-                <li class="item-menu ativo" onclick="mudarConteudo('conta')">
+
+                <li class="item-menu ativo" onclick="mudarConteudo('secao-inicio')">
                     <a href="#">
                         <span class="icone"><img src="./img/icone_home.png" alt="" style="height: 30px;" width="30px">
                         </span>
@@ -33,7 +40,7 @@
                     </a>
                 </li>
 
-                <li class="item-menu" onclick="mudarConteudo('painel')">
+                <li class="item-menu" onclick="mudarConteudo('secao-painel')">
                     <a href="#">
                         <span class="icone"><img src="./img/icone_dash.png" alt="" style="height: 30px;"> </span>
                         <span class="texto-link">Painel</span>
@@ -42,7 +49,7 @@
                 </li>
 
 
-                <li class="item-menu" onclick="mudarConteudo('quiz')">
+                <li class="item-menu" onclick="mudarConteudo('secao-quiz')">
                     <a href="#">
                         <span class="icone"><img src="./img/icone_quiz.png" alt="" style="height: 30px; width: 30px;">
                         </span>
@@ -65,114 +72,162 @@
 
 
 
-        <div id="conteudo" class="bloco">
 
+        <section id="secao-inicio">
 
-            <!-- inicio -->
-
-            <div id="conta" class="conteudo-secao">Pagodeando
-
-            </div>
-
-
-            <!-- dash -->
-
-            <div id="painel" class="conteudo-secao" style="display: none;"> Painel de Controle
-
-
-
+            <div class="inicio-conteudo">
+                <div class="quadrado"></div>
 
 
             </div>
 
+        </section>
 
-            <!-- quiz -->
 
 
-            <div id="quiz" class="conteudo-secao" style="display: none;">Prepare-se para o Quiz!
 
-                <div id="pontuacaoEJogo"> <!-- div tudo  -->
+        <section id="secao-painel" style="display: none;">
 
-                    <div id="menu">
 
+
+            <div class="painel-conteudo">
+
+
+                <div class="kpis">
+                    <div class="indicador" style="background-color: rgb(173, 7, 173);">
+                        <h3>Maior <br> Pontuação</h3>
+                        <h1 id="maior-pontuacao" class="indicador-valor">--</h1>
                     </div>
-
-                    <button id="btnIniciarQuiz" class="botao_primeiro" onclick="iniciarQuiz()">INICIAR QUIZ</button>
-                    <!-- botão iniciar  -->
-
-                    <div id="pontuacao" class="flex-colunar width-fit-content border-primary" style="display: none;">
-                        <div id="pontuacaoDuranteJogo" class="flex-colunar padding-8">
-                            <span class="width-fit-content">Quantidade de acertos: <span id="spanCertas"></span></span>
-                            <!-- texto   -->
-                            <span class="width-fit-content">Quantidade de erros: <span id="spanErradas"></span></span>
-                            <!-- texto  -->
-                        </div>
-                        <div id="pontuacaoFinalJogo" class="flex-colunar padding-8">
-                            <span id="pontuacaoFinal" class="width-fit-content">Pontuação Final:
-                                <span id="spanPontuacaoFinal">***</span>
-                            </span>
-                            <span id="msgFinal" class="width-fit-content">***</span>
-                        </div>
+                    <div class="indicador" style="background-color: rgb(9, 219, 187);">
+                        <h3>Menor <br> Pontuação</h3>
+                        <h1 id="menor-pontuacao" class="indicador-valor">--</h1>
                     </div>
+                    <div class="indicador" style="background-color: rgb(234, 92, 16);">
+                        <h3>Quantidade de <br> tentativas totais</h3>
+                        <h1 id="total-tentativas" class="indicador-valor">--</h1>
+                    </div>
+                </div>
 
-                    <div id="jogo" class="width-fit-content flex-colunar border-secondary" style="display: none;">
-
-                        <div id="infoQuestao" class="padding-8">
-                            <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de <span
-                                    id="qtdQuestoes"></span>
-                                questões.</span>
-                        </div>
-
-                        <div id="perguntaDaQuestaoAtual" class="padding-8">
-                            <span id="spanQuestaoExibida" class="text-bold"></span>
-                        </div>
-
-                        <div id="infoAlternativas" class="padding-8">
-                            <span><em>Escolha uma opção dentre as abaixo:</em></span>
-                        </div>
-
-                        <div id="opcoes" class="flex-colunar padding-8">
-                            <span>
-                                <input type="radio" id="primeiraOpcao" name="option" class="radio"
-                                    value="alternativaA" />
-                                <label for="primeiraOpcao" class="option" id="labelOpcaoUm"></label>
-                            </span>
-                            <span>
-                                <input type="radio" id="segundaOpcao" name="option" class="radio"
-                                    value="alternativaB" />
-                                <label for="segundaOpcao" class="option" id="labelOpcaoDois"></label>
-                            </span>
-                            <span>
-                                <input type="radio" id="terceiraOpcao" name="option" class="radio"
-                                    value="alternativaC" />
-                                <label for="terceiraOpcao" class="option" id="labelOpcaoTres"></label>
-                            </span>
-                            <span>
-                                <input type="radio" id="quartaOpcao" name="option" class="radio" value="alternativaD" />
-                                <label for="quartaOpcao" class="option" id="labelOpcaoQuatro"></label>
-                            </span>
-                        </div>
-
-                        <div id="botoes" class="flex-colunar padding-8">
-                            <button onclick="submeter()" id="btnSubmeter">Responder</button>
-                            <button onclick="avancar()" id="btnProx" disabled>Avançar para próxima questão</button>
-                            <!-- <button onclick="finalizar()" id="btnConcluir" disabled>Finalizar Quiz</button> -->
-                            <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar
-                                novamente</button>
-                        </div>
-
+                <div class="graficos">
+                    <div>
+                        <canvas id="canvas_grafico"></canvas>
+                    </div>
+                    <div>
+                        <canvas id="canvas_grafico_pizza"></canvas>
                     </div>
                 </div>
 
 
-                <!-- fecha o quiz -->
 
 
+                <!-- <div class="graficoUmid">
+                        <h2>Umidade semanal</h2>
+                        <div>
+                            <canvas id="myChart2"></canvas>
+                        </div>
+                    </div> -->
+
+            </div>
+    </div>
+
+
+
+    </div>
+    </section>
+
+
+    <section id="secao-quiz" style="display: none;">
+
+
+        <div class="quiz-conteudo">
+
+            Quiz
+
+            <div id="pontuacaoEJogo" class="largura">
+                <div id="img">
+                    <img src="img/img-quiz.jpg" alt="">
+                </div>
+
+
+                <button id="btnIniciarQuiz" class="botao_primeiro" onclick="iniciarQuiz()">INICIAR QUIZ</button>
+                <!-- botão iniciar  -->
+
+                <div id="pontuacao" class="flex-colunar width-fit-content border-primary" style="display: none;">
+                    <div id="pontuacaoDuranteJogo" class="flex-colunar padding-8">
+                        <span class="width-fit-content">Quantidade de acertos: <span id="spanCertas"></span></span>
+                        <!-- texto   -->
+                        <span class="width-fit-content">Quantidade de erros: <span id="spanErradas"></span></span>
+                        <!-- texto  -->
+                    </div>
+                    <div id="pontuacaoFinalJogo" class="flex-colunar padding-8">
+                        <span id="pontuacaoFinal" class="width-fit-content">Pontuação Final:
+                            <span id="spanPontuacaoFinal">***</span>
+                        </span>
+                        <span id="msgFinal" class="width-fit-content">***</span>
+                    </div>
+                </div>
+
+                <div id="jogo" class="width-fit-content flex-colunar border-secondary" style="display: none;">
+
+                    <div id="infoQuestao" class="padding-8">
+                        <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de <span
+                                id="qtdQuestoes"></span>
+                            questões.</span>
+                    </div>
+
+                    <div id="perguntaDaQuestaoAtual" class="padding-8">
+                        <span id="spanQuestaoExibida" class="text-bold"></span>
+                    </div>
+
+                    <div id="infoAlternativas" class="padding-8">
+                        <span><em>Escolha uma opção dentre as abaixo:</em></span>
+                    </div>
+
+                    <div id="opcoes" class="flex-colunar padding-8">
+                        <span>
+                            <input type="radio" id="primeiraOpcao" name="option" class="radio" value="alternativaA" />
+                            <label for="primeiraOpcao" class="option" id="labelOpcaoUm"></label>
+                        </span>
+                        <span>
+                            <input type="radio" id="segundaOpcao" name="option" class="radio" value="alternativaB" />
+                            <label for="segundaOpcao" class="option" id="labelOpcaoDois"></label>
+                        </span>
+                        <span>
+                            <input type="radio" id="terceiraOpcao" name="option" class="radio" value="alternativaC" />
+                            <label for="terceiraOpcao" class="option" id="labelOpcaoTres"></label>
+                        </span>
+                        <span>
+                            <input type="radio" id="quartaOpcao" name="option" class="radio" value="alternativaD" />
+                            <label for="quartaOpcao" class="option" id="labelOpcaoQuatro"></label>
+                        </span>
+                    </div>
+
+                    <div id="botoes" class="flex-colunar padding-8">
+                        <button onclick="submeter()" id="btnSubmeter">Responder</button>
+                        <button onclick="avancar()" id="btnProx" disabled>Avançar para próxima questão</button>
+                        <!-- <button onclick="finalizar()" id="btnConcluir" disabled>Finalizar Quiz</button> -->
+                        <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar
+                            novamente</button>
+                    </div>
+
+                </div>
             </div>
 
 
 
         </div>
+        <!-- Fecha o quiz -->
+    </section>
+
+
+
+
+
+
+    </div>
+
+
+
     </div>
 
 
@@ -187,7 +242,7 @@
     //menu lateral
 
     // Seleciona todos os itens do menu
-    var ax_menu_item = document.querySelectorAll('.item-menu'); // Corrigido o seletor
+    var ax_menu_item = document.querySelectorAll('.item-menu');
 
     function selecionar() {
         // Remove a classe 'ativo' de todos os itens
@@ -223,16 +278,20 @@
 <script>
     // mudar a seção
     function mudarConteudo(secao) {
-        const secoes = ["conta", "painel", "quiz"];
+        const secoes = ["secao-inicio", "secao-quiz", "secao-painel"];
 
-        // Esconder todas as seções
-        secoes.forEach(s => {
-            document.getElementById(s).style.display = "none";
-        });
 
-        // Mostrar apenas a seção escolhida
-        document.getElementById(secao).style.display = "block";
+        for (var i = 0; i < secoes.length; i++) {
+            console.log(secoes[i])
+            var s = document.querySelector(`#${secoes[i]}`)
+            s.style.display = "none";
+
+
+        }
+
+        document.querySelector(`#${secao}`).style.display = "block";
     }
+
 
 </script>
 
@@ -278,7 +337,41 @@
             alternativaC: "Violão",
             alternativaD: "Cavaquinho",
             alternativaCorreta: "alternativaA"
+        },
+
+        {
+            pergunta: "Qual era o significado original do termo 'pagode' ",
+            alternativaA: "Um tipo de dança tradicional",
+            alternativaB: "O nome de um instrumento musical",
+            alternativaC: "Festas regadas a comida, alegria, batuque e cantoria nas senzalas",
+            alternativaD: "Uma escola de samba",
+            alternativaCorreta: "alternativaC"
+        },
+        {
+            pergunta: "Como o pagode se dividiu nos anos 1990",
+            alternativaA: "Em samba de raiz e samba-enredo",
+            alternativaB: "Em pagode raiz e pagode romântico",
+            alternativaC: "Em samba tradicional e samba pop",
+            alternativaD: "Em samba de carnaval e samba de roda samba",
+            alternativaCorreta: "alternativaB"
+        },
+        {
+            pergunta: "Quem é conhecida como a “Madrinha do Pagode”?",
+            alternativaA: "Marisa Monte",
+            alternativaB: "Beth Carvalho",
+            alternativaC: "Elza Soares",
+            alternativaD: "Ivete Sangalo",
+            alternativaCorreta: "alternativaB"
+        },
+        {
+            pergunta: "Qual é a principal característica do pagode em relação ao samba?",
+            alternativaA: "É mais lento e melancólico",
+            alternativaB: " É apenas instrumental, sem canto",
+            alternativaC: "Os dois são a mesma coisa",
+            alternativaD: "Tem ritmo mais acelerado e instrumentos diferenciados",
+            alternativaCorreta: "alternativaD"
         }
+
 
     ]
 
@@ -338,6 +431,10 @@
 
     function submeter() {
         const options = document.getElementsByName("option"); // recupera alternativas no html
+
+        btnSubmeter.disabled = true;
+        btnSubmeter.style.backgroundColor = 'red';
+        btnSubmeter.style.color = 'black';
 
         //verifica se o usuario escolheu alguma alternativa
         let hasChecked = false //variavel para verificar se alguma alternativa foi marcada
@@ -414,7 +511,7 @@
 
         const questaoAtual = listaDeQuestoes[numeroDaQuestaoAtual] // questão atual 
         const respostaQuestaoAtual = questaoAtual.alternativaCorreta // qual é a resposta correta da questão atual
-        var ax_questao = numeroDaQuestaoAtual + 1;
+        var ax_questao = numeroDaQuestaoAtual + 1; // p pegar a última questão 
 
 
         const options = document.getElementsByName("option"); // recupera alternativas no html
@@ -454,8 +551,8 @@
                 numeroDaQuestaoAtual++
             }
         })
-    
-        
+
+
         fetch("/usuarios/respostas", {
             method: "POST",
             headers: {
@@ -479,7 +576,7 @@
                 console.log(`#ERRO: ${resposta}`);
             });
 
-            alert("bia");
+
 
     }
 
@@ -507,17 +604,17 @@
         let classComCoresParaMensagemFinal = null
         const porcentagemFinalDeAcertos = pontuacaoFinal / quantidadeDeQuestoes
 
-
-        if (pontuacaoFinal <= 1) {  // 0 ou 1 acerto
-            textoParaMensagemFinal = "Parece que você não conhece muito sobre pagode..."
-            classComCoresParaMensagemFinal = "text-danger-with-bg"
-        } else if (pontuacaoFinal <= 3) { // 2 ou 3 acertos
-            textoParaMensagemFinal = "Humm, você precisa ir mais para um pagodinho!"
-            classComCoresParaMensagemFinal = "text-warning-with-bg"
-        } else { // 4 acertos
-            textoParaMensagemFinal = "Uau, você realmente gosta muito de pagode!"
-            classComCoresParaMensagemFinal = "text-success-with-bg"
+        if (pontuacaoFinal <= 3) {  // 0 a 3 acertos
+            textoParaMensagemFinal = "Parece que você não conhece muito sobre pagode...";
+            classComCoresParaMensagemFinal = "text-danger-with-bg";
+        } else if (pontuacaoFinal <= 6) { // 4 a 6 acertos
+            textoParaMensagemFinal = "Humm, você precisa ir mais para um pagodinho!";
+            classComCoresParaMensagemFinal = "text-warning-with-bg";
+        } else { // 7 a 10 acertos
+            textoParaMensagemFinal = "Uau, você realmente gosta muito de pagode!";
+            classComCoresParaMensagemFinal = "text-success-with-bg";
         }
+
 
 
         textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos) * 100) + "% das questões."
@@ -564,9 +661,6 @@
                 console.log(`#ERRO: ${resposta}`);
             });
 
-
-
-
     }
 
 
@@ -576,59 +670,273 @@
 
 
 
-<!--  
+
 <script>
-    const ctx = document.getElementById('myChart');
+    //   const ctx = document.getElementById('myChart');
 
-    new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab', 'Dom'],
-            datasets: [{
-                label: 'Temperatura',
-                data: [2, 3, 1, 8, 9, 5, 4],
-                backgroundColor: 'navy',
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
+    //   new Chart(ctx, {
+    //     type: 'bar',
+    //     data: {
+    //       labels: ['1', '2', '3', '4', '5', '6', '7' , '8'],
+    //       datasets: [{
+    //         label: 'Respostas',
+    //         data: [2, 3, 1, 8, 9, 5, 25 , 5],
+    //         backgroundColor: '#02bcb5',
+    //         borderWidth: 1
+    //       }]
+    //     },
+    //     options: {
+    //       scales: {
+    //         y: {
+    //           beginAtZero: true
+    //         }
+    //       }
+    //     }
+    //   });
 
-    const ctx2 = document.getElementById('myChart2');
+    //   const ctx2 = document.getElementById('myChart2');
 
-    new Chart(ctx2, {
-        type: 'line',
-        data: {
-            labels: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab', 'Dom'],
-            datasets: [{
-                label: 'Umidade',
-                data: [50, 68, 38, 52, 45, 39, 53],
-                backgroundColor: '#03459c',
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
+    //   new Chart(ctx2, {
+    //     type: 'line',
+    //     data: {
+    //       labels: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab', 'Dom'],
+    //       datasets: [{
+    //         label: 'Umidade',
+    //         data: [50, 68, 38, 52, 45, 39, 53],
+    //         backgroundColor: '#02bcb5',
+    //         borderWidth: 1
+    //       }]
+    //     },
+    //     options: {
+    //       scales: {
+    //         y: {
+    //           beginAtZero: true
+    //         }
+    //       }
+    //     }
+    //   });
 </script>
--->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- parte de configuração de plotar os gráficos -->
+
+
 
 <script>
+    // Recupera os dados do usuário do sessionStorage
     const nomeUsuario = sessionStorage.getItem("NOME_USUARIO");
+    const id_usuario = sessionStorage.getItem("idusuario");
+
     // Verificando se está disponível
     if (nomeUsuario) {
-        document.getElementById("nomeUsuarioDisplay").innerText = ` ${nomeUsuario}!`;
+        document.getElementById("nomeUsuario").innerText = ` ${nomeUsuario}!`;
     }
+
+
+    window.onload = () => {
+        if (id_usuario) {
+
+            buscarPontuacao(id_usuario);
+            buscarTotalTentativas(id_usuario);
+            obterDadosGrafico();
+        } else {
+            console.error('ID do usuário não encontrado no sessionStorage');
+
+
+        }
+    };
+
+    // Funções de busca atualizadas
+    const menor_pontuacao = document.getElementById('menor-pontuacao')
+    const maior_pontuacao = document.getElementById('maior-pontuacao')
+
+    function buscarPontuacao(id_usuario) {
+        fetch(`/medidas/ultimas/${id_usuario}`, { cache: 'no-store' })
+            .then(function (response) {
+                if (response.ok) {
+                    response.json()
+
+                        .then(function (response) {
+                            const linha = response[0]
+                            menor_pontuacao.innerHTML = linha.menor_pontuacao
+                            maior_pontuacao.innerHTML = linha.maior_pontuacao
+
+                        }
+
+                        );
+
+                }
+
+            })
+
+            .catch(function (error) {
+                console.error('Erro ao buscar menor pontuação:', error);
+            });
+    }
+
+
+    const total_tentativas = document.getElementById('total-tentativas')
+
+    function buscarTotalTentativas(id_usuario) {
+        fetch(`/medidas/totalTentativas/${id_usuario}`, { cache: 'no-store' })
+            .then(function (response) {
+                if (response.ok) {
+                    return response.json()
+
+                        .then(function (response) {
+                            const linha = response[0]
+                            total_tentativas.innerHTML = linha.total_tentativas_gerais
+
+
+                        }
+
+                        );
+                }
+
+            })
+
+            .catch(function (error) {
+                console.error('Erro ao buscar total de tentativas:', error);
+            });
+    }
+
+
+
+
+
+    function obterDadosGrafico() {
+        fetch(`/medidas/grafico`, { cache: 'no-store' })
+            .then(function (response) {
+                if (response.ok) {
+                    return response.json();
+                }
+            })
+            .then(function (resposta) {
+                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+                plotarGraficoBarras(resposta);
+
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+
+
+    function plotarGraficoBarras(bia) {
+        console.log('iniciando plotagem do gráfico...');
+
+        const vetor = [];
+
+        var dados = {
+            labels: vetor,
+            datasets: [{
+                label: 'Acertos',
+                borderColor: '#32B9CD',
+                backgroundColor: ['#1abc9c', '#3498db', '#9b59b6', '#e67e22', '#e74c3c', '#f1c40f'],
+                data: []
+            }]
+        };
+
+        for (i = 0; i < bia.length; i++) {
+
+            var registro = bia[i];
+            dados.labels.push(registro.Questão);
+            dados.datasets[0].data.push(registro.usuarios);
+        }
+
+        console.log(JSON.stringify(dados)); //exibir json no console nao funciona por isso string...
+
+        var canvas = document.getElementById('canvas_grafico').getContext('2d'); //estilo 
+
+        const config =
+        {
+            type: 'bar',
+            data: dados,
+            options: {
+                animation: { duration: 500 },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Quantidade de acertos'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        min: 0
+                    }
+                }
+            }
+        }
+
+        const grafico_barras = new Chart(canvas, config)
+
+        setTimeout(() => {
+            atualizarGrafico(dados, grafico_barras)
+
+        }, 2000
+
+        )
+
+    }
+
+    var proxima
+
+    function atualizarGrafico(dados, grafico_barras) {
+
+        fetch(`/medidas/grafico`, { cache: 'no-store' })
+            .then(function (resposta) {
+                if (resposta.ok) {
+                    resposta.json();
+
+                    //  dados.labels = [];
+                    //  dados.datasets[0].data = []; //limpa o vetor 
+
+                    for (i = 0; i < resposta.length; i++) { //preenche os vetores
+
+                        var registro = resposta[i]; // não ficar feio 
+                        dados.labels.push(registro.Questão);
+                        dados.datasets[0].data.push(registro.usuarios);
+                    }
+
+                    grafico_barras.update();
+                    proxima =
+                        setTimeout(() => {
+                            atualizarGrafico(dados, grafico_barras)
+
+                        }, 2000
+
+                        )
+
+                }
+                else {
+                    proxima =
+                        setTimeout(() => {
+                            atualizarGrafico(dados, grafico_barras)
+
+                        }, 2000
+
+                        )
+                }
+            })
+           
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
 
 </script>

@@ -3,23 +3,14 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
 
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/fundo_home.jpg');
   background-size: cover;
-
+  overflow-x: hidden;
 }
 
-/* 
-  Estilização da barra de navegação lateral: 
-  - Largura inicial e altura total da tela;
-  - Cor de fundo;
-  - padding interno para espaçamento;
-  - Barra de rolagem apenas vertical (caso o conteúdo ultrapasse a altura);
-  - Adiciona uma sombra lateral para destaque;
-  - Define a posição fixa no canto superior esquerdo;
-  - Animação expandir (0.5s);
-*/
+/* Menu lateral */
 nav.menu-lateral {
   width: 85px;
   height: 100vh;
@@ -34,13 +25,7 @@ nav.menu-lateral {
   transition: width 0.5s ease;
 }
 
-/* 
-  Botão de expandir a barra lateral:
-  - Alinha os itens no centro verticalmente;
-  - Define um espaçamento entre ícone e texto;
-  - Adiciona margem inferior para separar dos outros elementos;
-  - Muda o cursor ao passar o mouse.
-*/
+/* Botão expandir */
 .btn-expandir {
   display: flex;
   align-items: center;
@@ -49,50 +34,27 @@ nav.menu-lateral {
   cursor: pointer;
 }
 
-/* 
-  Remove o estilo padrão dos estilo da lista 
-  e remove qualquer padding à esquerda.
-*/
+/* Lista e itens do menu */
 ul {
   list-style-type: none;
   padding-left: 0;
 }
 
-/* 
-  Estilo dos itens do menu lateral:
-  - Define uma transição suave ao mudar de cor;
-  - Adiciona espaçamento inferior entre os itens.
-*/
 ul li.item-menu {
   transition: background-color 0.2s ease;
   margin-bottom: 15px;
 }
 
-/* 
-  Define a cor de fundo dos itens que estão ativos/selecionados.
-*/
 ul li.ativo {
   background-color: rgb(70, 70, 70);
   color: white;
 }
 
-/* 
-  Muda a cor de fundo dos itens ao passar o mouse (hover).
-*/
 ul li.item-menu:hover {
   background-color: rgb(35, 35, 37);
 }
 
-/* 
-  Estilo dos links internos dos itens do menu:
-  - Alinha o ícone e o texto ao centro;
-  - Define um espaçamento entre eles;
-  - Remove o sublinhado dos links;
-  - Define cor branca para o texto;
-  - Adiciona um padding para aumentar a área clicável;
-  - Adiciona borda arredondada;
-  - Transição suave ao mudar de cor no hover.
-*/
+/* Links dos itens */
 ul li.item-menu a {
   display: flex;
   align-items: center;
@@ -105,57 +67,35 @@ ul li.item-menu a {
   transition: background-color 0.3s ease;
 }
 
-/* 
-  Muda a cor de fundo dos links ao passar o mouse (hover).
-*/
 ul li.item-menu a:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* 
-  Estilo da div de ícones:
-  - Centraliza o ícone vertical e horizontalmente.
-*/
+/* Ícones */
 .icone {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* 
-  Estilo do texto ao lado do ícone:
-  - Define um tamanho de fonte maior;
-  - Adiciona padding para espaçamento.
-*/
+/* Texto ao lado do ícone */
 .texto-link {
   font-size: 25px;
   padding: 10px;
 }
 
-/* 
-  Estilo dos ícones dentro do link:
-  - Aumenta o tamanho dos ícones;
-  - Adiciona uma pequena margem para afastar do texto.
-*/
+/* Ícones dentro do link */
 ul li.item-menu a .icone>i {
   font-size: 30px;
   margin-left: 10px;
 }
 
-/* 
-  Define o estilo do menu lateral quando está expandido:
-  - Aumenta a largura para 300px.
-*/
+/* Menu lateral expandido */
 nav.menu-lateral.expandir {
   width: 300px;
 }
 
-/* 
-  Sair - 'margem-extra':
-  - Adiciona um espaçamento superior para descer o item;
-  - Empurra o item mais para a direita;
-  - Define a mesma cor de fundo da barra lateral.
-*/
+/* Margem extra para sair */
 .margem-extra {
   margin-top: 50px;
   margin-left: 100px;
@@ -166,46 +106,27 @@ ul li.margem-extra a:hover {
   background-color: transparent;
 }
 
-/* Centraliza o conteúdo vertical e horizontalmente e coloca o texto abaixo do ícone */
+/* Item pessoa (ícone com texto abaixo) */
 li.item-menu.pessoa {
-    display: flex;
-    flex-direction: column; /* Coloca o ícone em cima e o texto embaixo */
-    align-items: center;    /* Centraliza horizontalmente */
-    justify-content: center; /* Centraliza verticalmente */
-    height: 100px;           /* Define uma altura para o card */
-      background-color: rgb(156, 156, 155);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  background-color: rgb(156, 156, 155);
 }
 
 li.item-menu.pessoa .texto-link {
-    margin-top: 5px; /* Um pequeno espaço entre o ícone e o texto */
-    font-size: 18px;
+  margin-top: 5px;
+  font-size: 18px;
 }
 
-
-/* Seleciona o card específico com a classe 'pessoa' */
 ul li.item-menu.pessoa {
-    transition: none; /* Remove a transição */
+  transition: none;
 }
 
 ul li.item-menu.pessoa:hover {
-    background-color: transparent; /* Não muda a cor */
-}
-
-
-/* quiz */
-.bloco {
-  margin-top: 100px;
-  padding: 100px;
-  height: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: rgb(0, 0, 0);
-  border-radius: 5px;
-  max-width: 800px;
-  position: relative;
-  transition: background-color 0.3s ease;
-  color: white;
-  overflow: auto;
+  background-color: transparent;
 }
 
 
@@ -214,9 +135,6 @@ ul li.item-menu.pessoa:hover {
   display: block;
 }
 
-
-/* quiz */
-
 #quiz {
   color: aqua;
 }
@@ -224,6 +142,7 @@ ul li.item-menu.pessoa:hover {
 button:hover {
   background-color: #25b1a6;
 }
+
 
 button {
   margin-top: 100px;
@@ -237,7 +156,6 @@ button {
   transition: background-color 0.3s ease;
   display: flex;
   flex-direction: column;
-
 }
 
 #pontuacao,
@@ -247,39 +165,24 @@ button {
   flex-direction: column;
   align-items: flex-start;
   gap: 12px;
-  /* Espaço entre os itens internos */
   border-radius: 8px;
   width: 100%;
   max-width: 1500px;
-  /* Card largo */
   max-height: 500px;
   font-size: 20px;
   min-height: 200px;
-  /* Aumenta a altura mínima do card */
   padding: 24px;
-  /* Espaçamento interno maior */
-  /* Texto um pouco maior */
 }
-
 
 #pontuacao {
   border: 2px solid #c2185b;
-
 }
 
 #jogo {
   border: 2px solid #1565c0;
-
 }
 
-#quiz {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 24px;
-  /* Espaço entre as seções */
-  padding: 40px;
-}
+
 
 #botoes button {
   margin: 4px 0;
@@ -289,14 +192,35 @@ button {
   cursor: pointer;
 }
 
-#btnProx:disabled,
-#btnTentarNovamente:disabled {
-  background-color: #ccc;
+
+#botoes button:disabled {
+  background-color: #5e5656;
+  /* Cor para botão inativo */
   cursor: not-allowed;
+  color: #ccc;
+  /* Cor do texto mais clara quando inativo */
 }
 
+/* Exemplo específico para btnSubmeter */
 #btnSubmeter {
-  background-color: #e0e0e0;
+  background-color: #ffffff;
+  /* ativo */
+}
+
+
+/* Para btnProx e btnTentarNovamente */
+#btnProx:disabled,
+#btnTentarNovamente:disabled {
+  background-color: #5e5656;
+  cursor: not-allowed;
+  color: #ccc;
+}
+
+#btnProx:not(:disabled),
+#btnTentarNovamente:not(:disabled) {
+  background-color: #d7acac;
+  /* Cor ativa */
+  color: white;
 }
 
 .option {
@@ -311,9 +235,7 @@ input[type="radio"] {
 #opcoes {
   display: flex;
   flex-direction: column;
-  /* Organiza em coluna */
   gap: 8px;
-  /* Espaço entre as opções */
 }
 
 #opcoes span {
@@ -337,27 +259,22 @@ input[type="radio"] {
 #infoAlternativas span,
 #infoQuestao span {
   color: #ffffff;
-  /* Cor do texto secundário */
   font-size: 16px;
   font-style: italic;
 }
 
-/* Cor dos textos de acertos e erros */
 #pontuacaoDuranteJogo span {
   color: #ffffff;
-
   font-size: 16px;
   font-weight: 600;
 }
 
-/* Cor do texto 'Pontuação Final' */
 #pontuacaoFinal {
   color: #ffffff;
   font-size: 18px;
   font-weight: 700;
 }
 
-/* Cor da mensagem final */
 #msgFinal {
   color: #f228a1;
   font-size: 20px;
@@ -366,16 +283,187 @@ input[type="radio"] {
   display: block;
 }
 
-
-/* dash */
-
-
-
-/* Ocultar e exibir seções */
-.conteudo-secao {
-  font-size: 30px;
-  position: relative;
-  right: 80px;
-  top: -80px;
-  display: none;
+#pontuacaoEJogo {
+  display: flex;
+  flex-direction: column;
+  margin-left: 80px;
+  align-items: center;
+  justify-content: flex-start;
+  /* Alinha tudo no topo */
+  padding-top: 40px;
+  /* Espaço superior opcional */
+  gap: 20px;
+  /* Espaço entre os elementos */
+  text-align: center;
+  height: auto;
+  /* Não força o tamanho da tela toda */
 }
+
+#img img {
+  max-width: 350px;
+  border-radius: 15px;
+  height: auto;
+  margin: 0;
+  margin-left: -100px;
+}
+
+#btnIniciarQuiz {
+  margin: 0;
+  /* Remove espaçamento extra */
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#img {
+  margin-top: 40px;
+
+}
+
+  #img img {
+    width: 600px; /* Tamanho desejado para a imagem */
+    height: auto; /* Mantém a proporção original */
+    max-width: 100%; /* Garante responsividade */
+    border-radius: 8px; /* Opcional: bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Opcional: sombra */
+    margin-left: 5px;
+  }
+
+/* bloco quiz */
+
+.quiz-conteudo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50vw;
+  background-color: #000000;
+  justify-self: center;
+  align-self: center;
+  align-items: center;
+  padding-bottom: 10vh;
+
+
+}
+
+#btnIniciarQuiz {
+ margin-left: 10px; 
+}
+
+#secao-quiz{
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/iamgemm.jpeg');
+  
+  min-height: 100vh;
+  width: 100vw;
+
+}
+#secao-inicio{
+   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/Cópia\ de\ Design\ sem\ nome.png');
+  min-height: 100vh;
+  width: 100vw;
+}
+
+.tudo #secao-quiz {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 20vh;
+
+}
+
+.largura {
+  width: 80%;
+  align-self: center;
+  margin-right: 4vw;
+}
+
+#secao-inicio {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/Cópia\ de\ Design\ sem\ nome.png');
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Painel  */
+#secao-painel {
+  background-color: #f2e8e8;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+.painel-conteudo {
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  /* Largura máxima que você deseja  */
+  width: 100%;
+  /* Para preencher até a largura máxima / */
+  margin: 0 auto;
+  /* / Centraliza horizontalmente / */
+  padding: 0 20px;
+  /* / Espaço nas laterais (respiro) */
+  box-sizing: border-box;
+}
+
+.kpis {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 20vh;
+}
+
+.indicador {
+  display: flex;
+  flex-direction: row;
+  width: 20%;
+  min-width: 150px;
+  height: 10%;
+  color: white;
+  padding: 2vh;
+  justify-content: space-between;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.graficos {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    width: 100%;
+    padding: 20px 0;
+    box-sizing: border-box;
+    margin-top: 2vh;
+    
+}
+
+#canvas_grafico {
+    margin-top: 30px;
+    max-width: 70vh;
+    min-width: 60vh;
+    height: 700px;
+}
+
+#canvas_grafico_pizza {
+    max-width: 40vh;
+    min-width: 35vh;
+    height: 700px;
+}
+
+/* card inicio */
+
+
+
+.inicio-conteudo {
+ 
+  display: flex;
+  flex-direction: column;
+  padding: 300px;
+  background-color: #000000;
+  width: 80%; /* Ajuste conforme necessário */
+  max-width: 1200px;
+  border-radius: 20px;
+}
+
