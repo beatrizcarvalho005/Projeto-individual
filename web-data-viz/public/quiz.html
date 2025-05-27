@@ -113,19 +113,14 @@
                         <canvas id="canvas_grafico"></canvas>
                     </div>
                     <div>
-                        <canvas id="canvas_grafico_pizza"></canvas>
+
                     </div>
                 </div>
 
 
 
 
-                <!-- <div class="graficoUmid">
-                        <h2>Umidade semanal</h2>
-                        <div>
-                            <canvas id="myChart2"></canvas>
-                        </div>
-                    </div> -->
+
 
             </div>
     </div>
@@ -835,7 +830,7 @@
 
 
 
-    function plotarGraficoBarras(bia) {
+    function plotarGraficoBarras(teste) {
         console.log('iniciando plotagem do gráfico...');
 
         const vetor = [];
@@ -845,21 +840,35 @@
             datasets: [{
                 label: 'Acertos',
                 borderColor: '#32B9CD',
-                backgroundColor: ['#1abc9c', '#3498db', '#9b59b6', '#e67e22', '#e74c3c', '#f1c40f'],
+                backgroundColor: ['green'],
                 data: []
-            }]
-        };
-
-        for (i = 0; i < bia.length; i++) {
-
-            var registro = bia[i];
-            dados.labels.push(registro.Questão);
-            dados.datasets[0].data.push(registro.usuarios);
+            },
+            {
+                label: 'Erros',
+                borderColor: '#32B9CD',
+                backgroundColor: ['red'],
+                data: []
+            }
+ 
+        ]
         }
+
+        for (i = 0; i < teste.length; i++) {
+
+            var registro = teste[i];
+            dados.labels.push(registro.Questão);
+            dados.datasets[0].data.push(registro.total_acertos);
+            dados.datasets[1].data.push(registro.total_erros);
+        }
+
+
+
+
 
         console.log(JSON.stringify(dados)); //exibir json no console nao funciona por isso string...
 
         var canvas = document.getElementById('canvas_grafico').getContext('2d'); //estilo 
+
 
         const config =
         {
@@ -879,17 +888,18 @@
                         min: 0
                     }
                 }
-            }
+            },
         }
+
 
         const grafico_barras = new Chart(canvas, config)
 
-        setTimeout(() => {
-            atualizarGrafico(dados, grafico_barras)
+        // setTimeout(() => {
+        //     atualizarGrafico(dados, grafico_barras)
 
-        }, 2000
+        // }, 2000
 
-        )
+        //)
 
     }
 
@@ -912,6 +922,8 @@
                         dados.datasets[0].data.push(registro.usuarios);
                     }
 
+          
+
                     grafico_barras.update();
                     proxima =
                         setTimeout(() => {
@@ -932,7 +944,7 @@
                         )
                 }
             })
-           
+
             .catch(function (error) {
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });

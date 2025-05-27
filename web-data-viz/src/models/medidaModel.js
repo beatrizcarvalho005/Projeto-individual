@@ -59,11 +59,13 @@ function buscarTotalTentativas(id_usuario) {
 function grafico() {
 
     var instrucaoSql = `
-   select 
-concat("Questão ",Pergunta ) as  Questão ,
- count(*) as usuarios
- from teste
- group by Pergunta ;`;
+SELECT  
+    CONCAT("Questão ", Pergunta) AS Questão,  
+    COUNT(DISTINCT fkUsuario) AS total_usuarios,  
+    SUM(CASE WHEN escolhida = correta THEN 1 ELSE 0 END) AS total_acertos,  
+    SUM(CASE WHEN escolhida <> correta THEN 1 ELSE 0 END) AS total_erros  
+FROM teste2 
+GROUP BY Pergunta;`;
 
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);

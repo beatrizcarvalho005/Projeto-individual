@@ -441,16 +441,13 @@ input[type="radio"] {
 
 #canvas_grafico {
     margin-top: 30px;
-    max-width: 70vh;
-    min-width: 60vh;
-    height: 700px;
+    max-width: 1000vh;
+    min-width: 90vh;
+    height: 900px;
+    margin-right: 5 50px;
 }
 
-#canvas_grafico_pizza {
-    max-width: 40vh;
-    min-width: 35vh;
-    height: 700px;
-}
+
 
 /* card inicio */
 
