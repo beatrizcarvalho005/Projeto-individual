@@ -28,7 +28,7 @@
                     <span class="icone">
                         <img src="./img/icone_Conta.png" alt="" style="height: 30px; width: 30px;">
                     </span>
-                    <span class="texto-link">Olá, <span id="nomeUsuario">usuário</span>
+                    <span class="texto-link" style="color: white;">Olá, <span id="nomeUsuario">usuário</span>
                 </li>
 
 
@@ -57,7 +57,7 @@
                     </a>
                 </li>
 
-                <li class="item-menu margem-extra" style=" background-color: rgb(156, 156, 155);">
+                <li class="item-menu margem-extra">
                     <a href="index.html">
                         <span class="icone">
                             <img src="./img/icone_sair.png" alt="" style="height: 30px; width: 30px;">
@@ -76,7 +76,10 @@
         <section id="secao-inicio">
 
             <div class="inicio-conteudo">
-                <div class="quadrado"></div>
+                <div class="quadrado">Bem vind@ ao Pagodeando!</div>
+
+                <div class="elemento-quadrado">Você realmente conhece sobre pagode? <br>
+                    Que tal descobir com a gente?  <br> Acesse ao nosso quiz e obtenha o resultado na hora!</div>
 
 
             </div>
@@ -95,15 +98,15 @@
 
                 <div class="kpis">
                     <div class="indicador" style="background-color: rgb(173, 7, 173);">
-                        <h3>Maior <br> Pontuação</h3>
+                        <h3>Maior <br> Pontuação</h3> <br>
                         <h1 id="maior-pontuacao" class="indicador-valor">--</h1>
                     </div>
-                    <div class="indicador" style="background-color: rgb(9, 219, 187);">
-                        <h3>Menor <br> Pontuação</h3>
+                    <div class="indicador" style="background-color: rgb(8, 163, 140);">
+                        <h3>Menor <br> Pontuação</h3> <br>
                         <h1 id="menor-pontuacao" class="indicador-valor">--</h1>
                     </div>
-                    <div class="indicador" style="background-color: rgb(234, 92, 16);">
-                        <h3>Quantidade de <br> tentativas totais</h3>
+                   <div class="indicador" style="background-color: rgb(8, 163, 140);">
+                        <h3>Total de <br> Tentativas</h3> <br>
                         <h1 id="total-tentativas" class="indicador-valor">--</h1>
                     </div>
                 </div>
@@ -147,7 +150,7 @@
                 <button id="btnIniciarQuiz" class="botao_primeiro" onclick="iniciarQuiz()">INICIAR QUIZ</button>
                 <!-- botão iniciar  -->
 
-                <div id="pontuacao" class="flex-colunar width-fit-content border-primary" style="display: none;">
+                <div id="pontuacao" class="flex-colunar width-fit-content border-primary" style="display: none; align-items: center;">
                     <div id="pontuacaoDuranteJogo" class="flex-colunar padding-8">
                         <span class="width-fit-content">Quantidade de acertos: <span id="spanCertas"></span></span>
                         <!-- texto   -->
@@ -216,9 +219,6 @@
 
 
 
-
-
-
     </div>
 
 
@@ -283,8 +283,17 @@
 
 
         }
+        if (secoes[2] == secao) {
+            document.querySelector(`#${secao}`).style.display = "block";
+        }
 
-        document.querySelector(`#${secao}`).style.display = "block";
+        else if (secoes[1] == secao) {
+            document.querySelector(`#${secao}`).style.display = "block";
+        }
+        else {
+            document.querySelector(`#${secao}`).style.display = "flex";
+
+        }
     }
 
 
@@ -660,67 +669,7 @@
 
 
 
-
 </script>
-
-
-
-
-<script>
-    //   const ctx = document.getElementById('myChart');
-
-    //   new Chart(ctx, {
-    //     type: 'bar',
-    //     data: {
-    //       labels: ['1', '2', '3', '4', '5', '6', '7' , '8'],
-    //       datasets: [{
-    //         label: 'Respostas',
-    //         data: [2, 3, 1, 8, 9, 5, 25 , 5],
-    //         backgroundColor: '#02bcb5',
-    //         borderWidth: 1
-    //       }]
-    //     },
-    //     options: {
-    //       scales: {
-    //         y: {
-    //           beginAtZero: true
-    //         }
-    //       }
-    //     }
-    //   });
-
-    //   const ctx2 = document.getElementById('myChart2');
-
-    //   new Chart(ctx2, {
-    //     type: 'line',
-    //     data: {
-    //       labels: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab', 'Dom'],
-    //       datasets: [{
-    //         label: 'Umidade',
-    //         data: [50, 68, 38, 52, 45, 39, 53],
-    //         backgroundColor: '#02bcb5',
-    //         borderWidth: 1
-    //       }]
-    //     },
-    //     options: {
-    //       scales: {
-    //         y: {
-    //           beginAtZero: true
-    //         }
-    //       }
-    //     }
-    //   });
-</script>
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -849,8 +798,8 @@
                 backgroundColor: ['red'],
                 data: []
             }
- 
-        ]
+
+            ]
         }
 
         for (i = 0; i < teste.length; i++) {
@@ -894,12 +843,7 @@
 
         const grafico_barras = new Chart(canvas, config)
 
-        // setTimeout(() => {
-        //     atualizarGrafico(dados, grafico_barras)
-
-        // }, 2000
-
-        //)
+ 
 
     }
 
@@ -912,8 +856,7 @@
                 if (resposta.ok) {
                     resposta.json();
 
-                    //  dados.labels = [];
-                    //  dados.datasets[0].data = []; //limpa o vetor 
+                    
 
                     for (i = 0; i < resposta.length; i++) { //preenche os vetores
 
@@ -922,7 +865,7 @@
                         dados.datasets[0].data.push(registro.usuarios);
                     }
 
-          
+
 
                     grafico_barras.update();
                     proxima =

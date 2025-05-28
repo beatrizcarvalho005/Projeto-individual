@@ -14,7 +14,7 @@ body {
 nav.menu-lateral {
   width: 85px;
   height: 100vh;
-  background-color: rgb(156, 156, 155);
+  background-color: rgba(106, 97, 97, 0.73);
   padding: 20px;
   overflow-y: auto;
   box-shadow: 3px 0 0 rgba(0, 0, 0, 0.5);
@@ -99,7 +99,7 @@ nav.menu-lateral.expandir {
 .margem-extra {
   margin-top: 50px;
   margin-left: 100px;
-  background-color: rgb(156, 156, 155);
+
 }
 
 ul li.margem-extra a:hover {
@@ -113,7 +113,7 @@ li.item-menu.pessoa {
   align-items: center;
   justify-content: center;
   height: 100px;
-  background-color: rgb(156, 156, 155);
+
 }
 
 li.item-menu.pessoa .texto-link {
@@ -320,14 +320,19 @@ input[type="radio"] {
 
 }
 
-  #img img {
-    width: 600px; /* Tamanho desejado para a imagem */
-    height: auto; /* Mantém a proporção original */
-    max-width: 100%; /* Garante responsividade */
-    border-radius: 8px; /* Opcional: bordas arredondadas */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Opcional: sombra */
-    margin-left: 5px;
-  }
+#img img {
+  width: 600px;
+  /* Tamanho desejado para a imagem */
+  height: auto;
+  /* Mantém a proporção original */
+  max-width: 100%;
+  /* Garante responsividade */
+  border-radius: 8px;
+  /* Opcional: bordas arredondadas */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Opcional: sombra */
+  margin-left: 5px;
+}
 
 /* bloco quiz */
 
@@ -346,18 +351,19 @@ input[type="radio"] {
 }
 
 #btnIniciarQuiz {
- margin-left: 10px; 
+  margin-left: 10px;
 }
 
-#secao-quiz{
+#secao-quiz {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/iamgemm.jpeg');
-  
+
   min-height: 100vh;
   width: 100vw;
 
 }
-#secao-inicio{
-   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/Cópia\ de\ Design\ sem\ nome.png');
+
+#secao-inicio {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/Cópia\ de\ Design\ sem\ nome.png');
   min-height: 100vh;
   width: 100vw;
 }
@@ -413,38 +419,40 @@ input[type="radio"] {
   flex-wrap: wrap;
   width: 100%;
   margin-top: 20vh;
+  margin-left: 35px;
 }
 
 .indicador {
   display: flex;
   flex-direction: row;
   width: 20%;
-  min-width: 150px;
+  min-width: 200px;
   height: 10%;
   color: white;
-  padding: 2vh;
+  padding: 5vh;
   justify-content: space-between;
   border-radius: 10px;
   box-sizing: border-box;
 }
 
 .graficos {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: flex-start;
-    width: 100%;
-    padding: 20px 0;
-    box-sizing: border-box;
-    margin-top: 2vh;
-    
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  padding: 20px 0;
+  box-sizing: border-box;
+  margin-top: 2vh;
+  
+
 }
 
 #canvas_grafico {
-    margin-top: 30px;
-    max-width: 1000vh;
-    min-width: 90vh;
-    height: 900px;
-    margin-right: 5 50px;
+  margin-top: 30px;
+  max-width: 1000vh;
+  min-width: 90vh;
+  height: 900px;
+  margin-left: 150px;
 }
 
 
@@ -454,13 +462,29 @@ input[type="radio"] {
 
 
 .inicio-conteudo {
- 
+
   display: flex;
   flex-direction: column;
-  padding: 300px;
-  background-color: #000000;
-  width: 80%; /* Ajuste conforme necessário */
+  padding: 200px;
+  background-color: #00000095;
+  width: 60%;
+  /* Ajuste conforme necessário */
   max-width: 1200px;
   border-radius: 20px;
+  backdrop-filter: blur(10px);
 }
 
+.quadrado {
+  color: rgb(255, 243, 7);
+  text-align: center;
+  margin-top: -10vh;
+ font-size: 3.2em;
+  font-weight: bold;
+}
+
+.elemento-quadrado {
+  color: rgb(255, 255, 254);
+  margin-top: vh;
+  text-align: center;
+ font-size: 2.2em;
+}
