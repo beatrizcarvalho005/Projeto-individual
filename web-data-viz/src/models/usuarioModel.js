@@ -28,7 +28,7 @@ function respostas(fkUsuario, fkPergunta, alternativa_escolhida) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucaoSql = `
-        INSERT INTO respostas (fkUsuario, fkPergunta, alternativa_escolhida) VALUES ('${fkUsuario}', '${fkPergunta}' , '${alternativa_escolhida}');
+        INSERT INTO respostas (fkUsuario, fkPerguntas, alternativa_escolhida) VALUES ('${fkUsuario}', '${fkPergunta}' , '${alternativa_escolhida}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);

@@ -1,22 +1,5 @@
 var database = require("../database/config");
 
-// function buscarUltimasMedidas(idAquario, limite_linhas) {
-
-//     var instrucaoSql = `SELECT 
-//         dht11_temperatura as temperatura, 
-//         dht11_umidade as umidade,
-//                         momento,
-//                         DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico
-//                     FROM medida
-//                     WHERE fk_aquario = ${idAquario}
-//                     ORDER BY id DESC LIMIT ${limite_linhas}`;
-
-// }
-
-
-
-
-
 
 
 function buscarPontuacao(idUsuario) {
@@ -39,6 +22,24 @@ function buscarPontuacao(idUsuario) {
 
 
 
+function grafico() {
+
+    var instrucaoSql = `SELECT  
+    CONCAT('Questão ', Pergunta) AS Questão,  
+    COUNT(DISTINCT fkUsuario) AS total_usuarios,  
+    SUM(CASE WHEN escolhida = correta THEN 1 ELSE 0 END) AS total_acertos,  
+    SUM(CASE WHEN escolhida <> correta THEN 1 ELSE 0 END) AS total_erros  
+FROM teste2 
+GROUP BY Pergunta;`;
+
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+
+
+
 
 
 function buscarTotalTentativas(id_usuario) {
@@ -56,15 +57,15 @@ function buscarTotalTentativas(id_usuario) {
 }
 
 
-function grafico() {
+function graficoUsuario(id_usuario) {
 
-    var instrucaoSql = `
-SELECT  
-    CONCAT("Questão ", Pergunta) AS Questão,  
+    var instrucaoSql = `SELECT  
+    CONCAT('Questão ', Pergunta) AS Questão,  
     COUNT(DISTINCT fkUsuario) AS total_usuarios,  
     SUM(CASE WHEN escolhida = correta THEN 1 ELSE 0 END) AS total_acertos,  
     SUM(CASE WHEN escolhida <> correta THEN 1 ELSE 0 END) AS total_erros  
-FROM teste2 
+FROM teste2
+WHERE fkUsuario = ${id_usuario}
 GROUP BY Pergunta;`;
 
 
@@ -77,7 +78,8 @@ GROUP BY Pergunta;`;
 
 module.exports = {
     buscarPontuacao,
-    buscarTotalTentativas , 
-    grafico
+    buscarTotalTentativas,
+    grafico,
+    graficoUsuario,
 }
 

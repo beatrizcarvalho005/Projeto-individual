@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
     <link rel="stylesheet" href="home.css" />
-    <link rel="shortcut icon" type="imagex/png" href="./img/logo.png">
+    <link rel="shortcut icon" type="imagex/png" href="./img/re.png">
 </head>
 
 <body>
@@ -45,10 +45,11 @@
             <!-- Carrossel -->
             <div class="carrossel">
                 <div class="carrossel_circulos" id="carrossel">
-                    <img src="img/carrossel1.jpeg" class="circulo primeiro" onclick="trocar()" type="text" />
-                    <img src="img/carrossel2.jpeg" class="circulo segundo" onclick="trocar()" />
-                    <img src="img/carrossel3.jpeg" class="circulo terceiro" onclick="trocar()" />
-                    <img src="img/carrossel4.jpeg" class="circulo quarto" onclick="trocar()" />
+                    <img src="" alt="">
+                    <img src="img/carrossel1.jpeg" alt="" class="circulo primeiro" onclick="trocar()" type="text" />
+                    <img src="img/carrossel2.jpeg" alt="" class="circulo segundo" onclick="trocar()" />
+                    <img src="img/carrossel3.jpeg" alt="" class="circulo terceiro" onclick="trocar()" />
+                    <img src="img/carrossel4.jpeg" alt="" class="circulo quarto" onclick="trocar()" />
                 </div>
             </div>
         </div>
@@ -57,7 +58,7 @@
 
         <div id="missao">
             <div class="item-missao">
-                <div class="icone-missao" style="background-image: url('img/pessoas.png');"></div>
+                <div class="icone-missao" style="background-image: url('img/pessoas.png') ;"></div>
                 <div class="titulo_missao">Coletividade</div>
                 <div class="texto-missao">
                     O pagode é capaz de unir as pessoas, independente da língua e lugar no mundo.
@@ -86,7 +87,7 @@
 
 
         <div id="musica_home">
-                 <div id="musica_titulo">
+            <div id="musica_titulo">
                 As músicas mais acessadas nos últimos tempos
             </div>
             <div class="musica_card">
@@ -131,16 +132,16 @@
                     frameborder="0" allowfullscreen=""
                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                     loading="lazy"></iframe>
-            </div>            
-            
+            </div>
+
             <div id="musica_saber">
                 Quer descobrir as músicas mais tocadas e muito mais? Clique em 'Saber Mais' <br>
                 fique por dentro de todas as novidades!
             </div>
-            
+
             <div id="musica_botao"><button onclick="mudar()">Saber mais</button></div>
         </div>
-        
+
     </div>
 
     <div id="depo">
@@ -232,6 +233,7 @@
         terceiro.classList.replace("terceiro", "segundo")
         primeiro.classList.add("primeiro-lado")
         segundo.classList.add("segundo-lado")
+        
         setTimeout(() => {
             primeiro.classList.replace("primeiro", "quarto")
             segundo.classList.replace("segundo", "primeiro")

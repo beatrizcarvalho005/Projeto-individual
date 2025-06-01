@@ -20,8 +20,8 @@ router.get("/totalTentativas/:id_usuario", function (req, res) {
     medidaController.buscarTotalTentativas(req, res);
 });
 
-router.get("/grafico", function (req, res) {
-    medidaController.grafico(req, res);
+router.get("/grafico_procura/:id_usuario", function (req, res) {
+    medidaController.grafico_procura(req, res);
 });
 
 

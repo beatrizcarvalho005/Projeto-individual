@@ -34,7 +34,8 @@ body {
   width: 100%;
   z-index: 1000;
   display: flex;
-  justify-content: flex-end; /* Alinha os itens à direita */
+  justify-content: flex-end;
+  /* Alinha os itens à direita */
   align-items: center;
   transition: background-color 0.4s ease, box-shadow 0.4s ease;
   border-bottom: 2px solid #444;
@@ -118,23 +119,29 @@ body {
 }
 
 #titulo {
-    position: relative; /* adiciona posição relativa para o ::after funcionar */
-    padding: 40px;
-    margin-bottom: 20px;
-    font-size: 40px;
-    color: #f3f702;
-    text-align: center; 
+  position: relative;
+  /* adiciona posição relativa para o ::after funcionar */
+  padding: 40px;
+  margin-bottom: 20px;
+  font-size: 40px;
+  color: #f3f702;
+  text-align: center;
 }
 
 #titulo::after {
-    content: "";
-    position: absolute;
-    bottom: -10px; /* distância entre o título e a linha */
-    left: 50%; /* centraliza horizontalmente */
-    transform: translateX(-50%); /* p ficar no meio */
-    width: 100px; /* tamanho da linha */
-    height: 3px; /* espessura da linha */
-    background-color: #f3f702; 
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  /* distância entre o título e a linha */
+  left: 50%;
+  /* centraliza horizontalmente */
+  transform: translateX(-50%);
+  /* p ficar no meio */
+  width: 100px;
+  /* tamanho da linha */
+  height: 3px;
+  /* espessura da linha */
+  background-color: #f3f702;
 }
 
 #texto {
@@ -153,7 +160,8 @@ body {
 
 #imagem1 figcaption,
 #imagem2 figcaption,
-#imagem3 figcaption {
+#imagem3 figcaption,
+#imagem4 figcaption {
   font-size: 14px;
   color: #ccc;
   margin-top: 16px;
@@ -163,100 +171,188 @@ body {
 
 }
 
-#imagem1:hover, #imagem2:hover, #imagem3:hover {
+
+
+#imagem1:hover,
+#imagem2:hover,
+#imagem3:hover {
   transform: translateY(-10px);
   border-radius: 10px;
 }
+
+.desen {
+  display: flex;
+  flex-direction: column;
+  /* Empilha título e conteúdo */
+  align-items: center;
+  background-color: #1c1c1c;
+  margin-top: 100px;
+    padding: 60px;
+    border-radius: 15px;
+
+}
+
+.titulo_dese {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.titulo_dese::after {
+  content: "";
+  position: absolute;
+
+  /* distância entre o título e a linha */
+  left: 50%;
+  /* centraliza horizontalmente */
+  transform: translateX(-50%);
+  /* p ficar no meio */
+  width: 100px;
+  /* tamanho da linha */
+  height: 3px;
+  /* espessura da linha */
+  background-color: #dadada;
+}
+
+.conteudo_desen {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  /* Espaço entre texto e imagem */
+  justify-content: center;
+}
+
+.texto_dese {
+  max-width: 500px;
+  font-size: 1.1rem;
+  color: #ffffff;
+  text-align: left;
+}
+
+#imagem4 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#imagem4 img {
+  width: 280px;
+  height: auto;
+  border-radius: 10px;
+
+}
+
+#imagem4 figcaption {
+  margin-top: 8px;
+  font-style: italic;
+  color: #ffffff;
+}
+
 
 figure {
   margin: 20px 0;
   text-align: justify;
 }
 
+
+.referencia{
+  margin-top: 50px;
+  text-align: left;
+}
+
 /* Rodapé */
 .rodape {
-    background-color: rgb(0, 0, 0);
-    color: rgb(255, 255, 255);
-    font-size: 14px;
-    font-family: Helvetica, sans-serif;
-    padding: 40px 0;
-    width: 100%;
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  font-family: Helvetica, sans-serif;
+  padding: 40px 0;
+  width: 100%;
 }
 
 .rodape a {
-    text-decoration: none;
-    color: rgb(255, 255, 255); /* Ajuste a cor do link */
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  /* Ajuste a cor do link */
 }
 
 .rodape p {
-    margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 
 /* Container do rodapé */
 .rodape-div {
-    display: flex;
-    justify-content: space-between; /* Distribui as colunas */
-    align-items: flex-start; /* Alinha as colunas ao topo */
-    padding: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  /* Distribui as colunas */
+  align-items: flex-start;
+  /* Alinha as colunas ao topo */
+  padding: 0 10px;
 }
 
 /* Colunas dentro do rodapé */
 #logo {
-    width: 100px;
-    height: 100px;
-    background-image: url('img/re.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    margin-bottom: 10px;
+  width: 100px;
+  height: 100px;
+  background-image: url('img/re.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-bottom: 10px;
 }
 
 /* Ajusta o tamanho das colunas */
 .rodape-div-1,
 .rodape-div-2,
 .rodape-div-3 {
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
 }
 
 /* Alinhamento do conteúdo nas colunas */
 .rodape-div-1 {
-    width: 33%; /* Primeira coluna ocupa 1/3 da largura */
-    text-align: center; /* Alinha o texto à esquerda */
+  width: 33%;
+  /* Primeira coluna ocupa 1/3 da largura */
+  text-align: center;
+  /* Alinha o texto à esquerda */
 }
 
 .rodape-div-2 {
-    width: 33%; /* Segunda coluna ocupa 1/3 da largura */
-    text-align: center; /* Alinha o texto ao centro */
+  width: 33%;
+  /* Segunda coluna ocupa 1/3 da largura */
+  text-align: center;
+  /* Alinha o texto ao centro */
 }
 
 .rodape-div-3 {
-    width: 33%; /* Terceira coluna ocupa 1/3 da largura */
-    text-align: center; /* Alinha o texto à direita */
+  width: 33%;
+  /* Terceira coluna ocupa 1/3 da largura */
+  text-align: center;
+  /* Alinha o texto à direita */
 }
 
 .rodape span {
-    font-size: 20px;
-    color: rgb(255, 255, 255);
-    font-weight: bold;
-    display: inline-block;
-    margin-bottom: 10px; /* Espaço entre o título e o conteúdo */
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  display: inline-block;
+  margin-bottom: 10px;
+  /* Espaço entre o título e o conteúdo */
 }
 
 /* Alinhamento do conteúdo nas colunas */
 .rodape-div-1 p,
 .rodape-div-2 p,
 .rodape-div-3 p {
-font-size: 1.0rem;
+  font-size: 1.0rem;
 }
 
 .rodape-div-3 p a {
-    color: rgb(255, 255, 255);
-    /* A cor do link */
+  color: rgb(255, 255, 255);
+  /* A cor do link */
 }
 
 .rodape-div-3 p a:hover {
-    text-decoration: underline;
-    /* Efeito de sublinhado ao passar o mouse */
+  text-decoration: underline;
+  /* Efeito de sublinhado ao passar o mouse */
 }

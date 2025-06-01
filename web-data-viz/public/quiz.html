@@ -5,8 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="quiz.css">
-    <link rel="shortcut icon" type="imagex/png" href="./img/logo.png">
+    <link rel="shortcut icon" type="imagex/png" href="./img/re.png">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <title>Quiz</title>
 </head>
 
@@ -18,7 +21,7 @@
         <nav class="menu-lateral">
 
             <div class="btn-expandir">
-                <img src="./img/menu-aberto (1).png" alt="" style="height: 50px; width: 50px;">
+                <img src="./img/menu-aberto (1).png" alt=" 'imagem: Flaticon.com'. Esta capa foi criada com recursos do Flaticon.com." style="height: 50px; width: 50px;">
                 <i class="lista" id="btn_expandir"></i>
             </div>
 
@@ -26,7 +29,7 @@
             <ul>
                 <li class="item-menu pessoa">
                     <span class="icone">
-                        <img src="./img/icone_Conta.png" alt="" style="height: 30px; width: 30px;">
+                        <img src="./img/icone_Conta.png" alt=" 'imagem: Flaticon.com'. Esta capa foi criada com recursos do Flaticon.com." style="height: 30px; width: 30px;">
                     </span>
                     <span class="texto-link" style="color: white;">Olá, <span id="nomeUsuario">usuário</span>
                 </li>
@@ -34,7 +37,7 @@
 
                 <li class="item-menu ativo" onclick="mudarConteudo('secao-inicio')">
                     <a href="#">
-                        <span class="icone"><img src="./img/icone_home.png" alt="" style="height: 30px;" width="30px">
+                        <span class="icone"><img src="./img/icone_home.png" alt=" 'imagem: Flaticon.com'. Esta capa foi criada com recursos do Flaticon.com." style="height: 30px;" width="30px">
                         </span>
                         <span class="texto-link">Início</span>
                     </a>
@@ -42,7 +45,7 @@
 
                 <li class="item-menu" onclick="mudarConteudo('secao-painel')">
                     <a href="#">
-                        <span class="icone"><img src="./img/icone_dash.png" alt="" style="height: 30px;"> </span>
+                        <span class="icone"><img src="./img/icone_dash.png" alt=" 'imagem: Flaticon.com'. Esta capa foi criada com recursos do Flaticon.com." style="height: 30px;"> </span>
                         <span class="texto-link">Painel</span>
                     </a>
 
@@ -51,7 +54,7 @@
 
                 <li class="item-menu" onclick="mudarConteudo('secao-quiz')">
                     <a href="#">
-                        <span class="icone"><img src="./img/icone_quiz.png" alt="" style="height: 30px; width: 30px;">
+                        <span class="icone"><img src="./img/icone_quiz.png" alt=" 'imagem: Flaticon.com'. Esta capa foi criada com recursos do Flaticon.com." style="height: 30px; width: 30px;">
                         </span>
                         <span class="texto-link">Quiz</span>
                     </a>
@@ -60,7 +63,7 @@
                 <li class="item-menu margem-extra">
                     <a href="index.html">
                         <span class="icone">
-                            <img src="./img/icone_sair.png" alt="" style="height: 30px; width: 30px;">
+                            <img src="./img/icone_sair.png" alt=" 'imagem: Flaticon.com'. Esta capa foi criada com recursos do Flaticon.com." style="height: 30px; width: 30px;">
                         </span>
                         <span class="texto-link">Sair</span>
                     </a>
@@ -79,7 +82,7 @@
                 <div class="quadrado">Bem vind@ ao Pagodeando!</div>
 
                 <div class="elemento-quadrado">Você realmente conhece sobre pagode? <br>
-                    Que tal descobir com a gente?  <br> Acesse ao nosso quiz e obtenha o resultado na hora!</div>
+                    Que tal descobir com a gente? <br> Acesse ao nosso quiz e obtenha o resultado na hora!</div>
 
 
             </div>
@@ -98,34 +101,51 @@
 
                 <div class="kpis">
                     <div class="indicador" style="background-color: rgb(173, 7, 173);">
-                        <h3>Maior <br> Pontuação</h3> <br>
+                        <h3>Maior Pontuação <br> Por tentativa</h3> <br>
                         <h1 id="maior-pontuacao" class="indicador-valor">--</h1>
                     </div>
                     <div class="indicador" style="background-color: rgb(8, 163, 140);">
-                        <h3>Menor <br> Pontuação</h3> <br>
+                        <h3>Menor Pontuação <br> Por tentativa </h3> <br>
                         <h1 id="menor-pontuacao" class="indicador-valor">--</h1>
                     </div>
-                   <div class="indicador" style="background-color: rgb(8, 163, 140);">
+                    <div class="indicador" style="background-color:hsl(51, 83%, 42%);">
                         <h3>Total de <br> Tentativas</h3> <br>
                         <h1 id="total-tentativas" class="indicador-valor">--</h1>
                     </div>
                 </div>
 
-                <div class="graficos">
-                    <div>
-                        <canvas id="canvas_grafico"></canvas>
-                    </div>
-                    <div>
+                <div class="gra">
+
+                    <div class="graficos">
+
+                        <div class="grafico1">
+                            <div class="titulo_grafico1">
+                                <h3>Quantidade de Erros e Acertos de Todos os Usuários</h3>
+                            </div>
+                            <canvas id="canvas_grafico" style="height: 40vh; width: 40vw;"></canvas>
+
+                        </div>
+
+                        <div class="grafico2">
+                            <div class="titulo_grafico2">
+                                <h3>Seus Acertos e Erros</h3>
+                            </div>
+                            <canvas id="canvas_grafico2" style="height: 40vh; width: 40vw;"></canvas>
+                        </div>
+
 
                     </div>
+
                 </div>
 
-
-
-
-
-
             </div>
+
+
+
+
+
+
+    </div>
     </div>
 
 
@@ -140,7 +160,6 @@
         <div class="quiz-conteudo">
 
             Quiz
-
             <div id="pontuacaoEJogo" class="largura">
                 <div id="img">
                     <img src="img/img-quiz.jpg" alt="">
@@ -150,7 +169,8 @@
                 <button id="btnIniciarQuiz" class="botao_primeiro" onclick="iniciarQuiz()">INICIAR QUIZ</button>
                 <!-- botão iniciar  -->
 
-                <div id="pontuacao" class="flex-colunar width-fit-content border-primary" style="display: none; align-items: center;">
+                <div id="pontuacao" class="flex-colunar width-fit-content border-primary"
+                    style="display: none; align-items: center;">
                     <div id="pontuacaoDuranteJogo" class="flex-colunar padding-8">
                         <span class="width-fit-content">Quantidade de acertos: <span id="spanCertas"></span></span>
                         <!-- texto   -->
@@ -204,8 +224,7 @@
                         <button onclick="submeter()" id="btnSubmeter">Responder</button>
                         <button onclick="avancar()" id="btnProx" disabled>Avançar para próxima questão</button>
                         <!-- <button onclick="finalizar()" id="btnConcluir" disabled>Finalizar Quiz</button> -->
-                        <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar
-                            novamente</button>
+                        <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Verificar Painel</button>
                     </div>
 
                 </div>
@@ -216,8 +235,6 @@
         </div>
         <!-- Fecha o quiz -->
     </section>
-
-
 
     </div>
 
@@ -437,8 +454,8 @@
         const options = document.getElementsByName("option"); // recupera alternativas no html
 
         btnSubmeter.disabled = true;
-        btnSubmeter.style.backgroundColor = 'red';
-        btnSubmeter.style.color = 'black';
+        btnSubmeter.style.backgroundColor = 'white';
+
 
         //verifica se o usuario escolheu alguma alternativa
         let hasChecked = false //variavel para verificar se alguma alternativa foi marcada
@@ -503,9 +520,13 @@
     }
 
     function tentarNovamente() {
-        // atualiza a página
-        window.location.reload()
+         
+        mudarConteudo('secao-painel');
+
+        
     }
+
+
 
     //Verifica se a alternativa escolhida está correta e atualiza a pontuação
     function checarResposta() {
@@ -690,10 +711,9 @@
 
     window.onload = () => {
         if (id_usuario) {
-
             buscarPontuacao(id_usuario);
             buscarTotalTentativas(id_usuario);
-            obterDadosGrafico();
+            obterDadosGrafico(id_usuario);
         } else {
             console.error('ID do usuário não encontrado no sessionStorage');
 
@@ -756,21 +776,28 @@
     }
 
 
+    var graficoTodos = [];
+    var graficoEspecifico = [];
 
 
+    function obterDadosGrafico(id_usuario) {
+        console.log("ID usuário recebido:", id_usuario);
 
-    function obterDadosGrafico() {
-        fetch(`/medidas/grafico`, { cache: 'no-store' })
+        fetch(`/medidas/grafico_procura/${id_usuario}`, { cache: 'no-store' })
             .then(function (response) {
                 if (response.ok) {
                     return response.json();
+                } else {
+                    throw new Error("Erro na resposta da API");
                 }
             })
-            .then(function (resposta) {
-                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+            .then(function (dados) {
+                console.log(`Dados recebidos: ${JSON.stringify(dados)}`);
 
-                plotarGraficoBarras(resposta);
+                const graficoTodos = dados.resultado_todos;
+                const graficoEspecifico = dados.resultado_especifico;
 
+                plotarGraficoBarras(graficoTodos, graficoEspecifico);
             })
             .catch(function (error) {
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
@@ -778,8 +805,7 @@
     }
 
 
-
-    function plotarGraficoBarras(teste) {
+    function plotarGraficoBarras(graficoTodos, graficoEspecifico) {
         console.log('iniciando plotagem do gráfico...');
 
         const vetor = [];
@@ -802,21 +828,52 @@
             ]
         }
 
-        for (i = 0; i < teste.length; i++) {
 
-            var registro = teste[i];
+        var dados2 = {
+            labels: vetor,
+            datasets: [{
+                label: 'Acertos',
+                borderColor: '#32B9CD',
+                backgroundColor: ['green'],
+                data: []
+            },
+            {
+                label: 'Erros',
+                borderColor: '#32B9CD',
+                backgroundColor: ['red'],
+                data: []
+            }
+
+            ]
+        }
+
+        for (i = 0; i < graficoTodos.length; i++) {
+
+            var registro = graficoTodos[i];
+            var registro2 = graficoEspecifico[i];
+
             dados.labels.push(registro.Questão);
             dados.datasets[0].data.push(registro.total_acertos);
             dados.datasets[1].data.push(registro.total_erros);
+            dados2.datasets[0].data.push(registro2.total_acertos);
+            dados2.datasets[1].data.push(registro2.total_erros);
         }
 
 
 
 
+        console.log(JSON.stringify(dados2.datasets[1]));
 
-        console.log(JSON.stringify(dados)); //exibir json no console nao funciona por isso string...
+        console.log(JSON.stringify(dados2.datasets[0]));
+
+        console.log(JSON.stringify(dados.datasets[1]));
+
+        console.log(JSON.stringify(dados.datasets[0])); //exibir json no console nao funciona por isso string...
+        console.log(JSON.stringify(dados2)); //exibir json no console nao funciona por isso string...
 
         var canvas = document.getElementById('canvas_grafico').getContext('2d'); //estilo 
+
+        var canvas2 = document.getElementById('canvas_grafico2').getContext('2d'); //estilo 
 
 
         const config =
@@ -824,11 +881,12 @@
             type: 'bar',
             data: dados,
             options: {
+                responsive: false,
                 animation: { duration: 500 },
                 plugins: {
                     title: {
                         display: true,
-                        text: 'Quantidade de acertos'
+
                     }
                 },
                 scales: {
@@ -841,36 +899,78 @@
         }
 
 
-        const grafico_barras = new Chart(canvas, config)
+        const config2 =
+        {
+            type: 'bar',
+            data: dados2,
+            options: {
+                responsive: false,
+                animation: { duration: 500 },
+                plugins: {
+                    title: {
+                        display: true,
 
- 
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        min: 0
+                    }
+                }
+            },
+        }
+
+
+        const graficoTodoss = new Chart(canvas, config);
+        const graficoEspecificoo = new Chart(canvas2, config2);
+
+
 
     }
 
     var proxima
 
-    function atualizarGrafico(dados, grafico_barras) {
+    function atualizarGrafico(dados, graficoEspecificoo, graficoTodoss) {
 
-        fetch(`/medidas/grafico`, { cache: 'no-store' })
+        fetch(`/medidas/grafico_procura`, { cache: 'no-store' })
             .then(function (resposta) {
                 if (resposta.ok) {
                     resposta.json();
 
-                    
+
 
                     for (i = 0; i < resposta.length; i++) { //preenche os vetores
 
-                        var registro = resposta[i]; // não ficar feio 
+
+                        var registro = graficoTodoss[i];
+                        var registro2 = graficoEspecificoo[i];
+
                         dados.labels.push(registro.Questão);
-                        dados.datasets[0].data.push(registro.usuarios);
+                        dados.datasets[0].data.push(registro.total_acertos);
+                        dados.datasets[1].data.push(registro.total_erros);
+                        dados2.datasets[0].data.push(registro2.total_acertos);
+                        dados2.datasets[1].data.push(registro2.total_erros);
                     }
 
 
 
-                    grafico_barras.update();
+                    graficoTodos.update();
                     proxima =
                         setTimeout(() => {
-                            atualizarGrafico(dados, grafico_barras)
+                            atualizarGrafico(dados, graficoTodos)
+
+                        }, 2000
+
+                        )
+
+
+
+
+                    graficoEspecifico.update();
+                    proxima =
+                        setTimeout(() => {
+                            atualizarGrafico(dados, graficoEspecifo)
 
                         }, 2000
 
@@ -880,12 +980,13 @@
                 else {
                     proxima =
                         setTimeout(() => {
-                            atualizarGrafico(dados, grafico_barras)
+                            atualizarGrafico(dados, graficoEspecifico, graficoTodos)
 
                         }, 2000
 
                         )
                 }
+
             })
 
             .catch(function (error) {

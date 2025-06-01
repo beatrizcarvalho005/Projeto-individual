@@ -7,7 +7,7 @@
   <title>Cadastro</title>
   <link rel="stylesheet" href="style_cadastro.css">
 </head>
-<link rel="shortcut icon" type="imagex/png" href="./img/logo.png">
+<link rel="shortcut icon" type="imagex/png" href="./img/re.png">
 
 <body>
 
@@ -73,7 +73,7 @@
 
     <div id="imagem_login"></div>
 
-    
+
 
     <!-- Div do Login -->
     <div id="img">
@@ -138,7 +138,7 @@
 <script>
 
   function cadastrar() {
-    var ax_imagem2 = document.getElementById("imagem_login")
+    var ax_imagem3 = document.getElementById("imagem_login")
 
 
     // decraclaração das variaveies booleanas  para validar a senha
@@ -164,6 +164,7 @@
     var senhaVar = cad_senha.value;
     var confirmacaoSenhaVar = cad_senha2.value;
 
+    
 
 
     // varre a string 'senha' aplicando a verificação de todas as regras da senha 
@@ -224,11 +225,13 @@
       return
 
     }
+ 
 
     if (!emailVar.includes("@")) {
       alert("Email inválido")
       return
     }
+    
 
     fetch("/usuarios/cadastrar", {
       method: "POST",
@@ -250,12 +253,19 @@
         if (resposta.ok) {
 
           alert("Cadastro realizado com sucesso!");
+          ax_imagem3.style.transition = "2s ease"
+          ax_imagem3.style.transition = "2s ease"
+          ax_imagem3.style.transform = "translateX(0%)"
+          cad_nome.value = "";
+          cad_email.value = "";
+          cad_senha.value = "";
+          cad_senha2.value = "";
+
 
           document.getElementById("form-cadastro").reset();
 
-          
-          ax_imagem2.style.transition = "2s ease"
-          ax_imagem2.style.transform = "translateX(0%)"
+
+
 
         } else {
           alert("Houve um erro ao tentar realizar o cadastro!");
@@ -293,7 +303,7 @@
           resposta.json().then((json) => {
             console.log(json);
 
-            
+
             sessionStorage.setItem("NOME_USUARIO", json.nome);
             sessionStorage.setItem("idusuario", json.id_usuario);
             //  Armazenando no Local Storage (caso deseje que fique salvo após fechar o navegador)
@@ -313,6 +323,9 @@
     return false;
   }
 
+
+
+
   function olho_senha1() {
     const senha = document.getElementById("cad_senha");
     const icone = document.getElementById("id_icone");
@@ -326,6 +339,9 @@
     }
   }
 
+
+
+
   function olho_senha2() {
     const senha2 = document.getElementById("cad_senha2");
     const icone2 = document.getElementById("id_icone2");
@@ -338,6 +354,9 @@
       icone2.src = "img/olho-nao.png"; // Ícone de "olho aberto"
     }
   }
+
+
+
 
 
 
