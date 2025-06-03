@@ -4,6 +4,7 @@ var database = require("../database/config");
 
 function buscarPontuacao(idUsuario) {
 
+        console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function buscar jportuacai(): ", )
     var instrucaoSql = `select 
     r.fkUsuario as idUsuario,
     u.nome as nomeUsuario,  
@@ -23,17 +24,17 @@ function buscarPontuacao(idUsuario) {
 
 
 function grafico() {
-
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function grafico(): ", )
     var instrucaoSql = `SELECT  
-    CONCAT('Questão ', Pergunta) AS Questão,  
-    COUNT(DISTINCT fkUsuario) AS total_usuarios,  
-    SUM(CASE WHEN escolhida = correta THEN 1 ELSE 0 END) AS total_acertos,  
-    SUM(CASE WHEN escolhida <> correta THEN 1 ELSE 0 END) AS total_erros  
-FROM teste2 
-GROUP BY Pergunta;`;
+        CONCAT('Questão ', Pergunta) AS Questão,  
+        COUNT(DISTINCT fkUsuario) AS total_usuarios,  
+        SUM(CASE WHEN escolhida = correta THEN 1 ELSE 0 END) AS total_acertos,  
+        SUM(CASE WHEN escolhida <> correta THEN 1 ELSE 0 END) AS total_erros  
+    FROM teste2 
+    GROUP BY Pergunta;`;
 
 
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    console.log("Executando a instrução SQL do grafico (): \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
@@ -43,7 +44,7 @@ GROUP BY Pergunta;`;
 
 
 function buscarTotalTentativas(id_usuario) {
-
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function total tenta(): ", )
     var instrucaoSql = `
     SELECT COUNT(*) AS total_tentativas_gerais
     FROM resultados_quiz r
@@ -58,7 +59,7 @@ function buscarTotalTentativas(id_usuario) {
 
 
 function graficoUsuario(id_usuario) {
-
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function eepecidof(): ", )
     var instrucaoSql = `SELECT  
     CONCAT('Questão ', Pergunta) AS Questão,  
     COUNT(DISTINCT fkUsuario) AS total_usuarios,  
@@ -69,7 +70,7 @@ WHERE fkUsuario = ${id_usuario}
 GROUP BY Pergunta;`;
 
 
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    console.log("Executando a instrução SQ do graficouursdytdyutL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 

@@ -11,12 +11,13 @@
 
 <body>
 
-  <a href="index.html" id="voltar-home" title="Voltar para a página inicial"> &#8592; Início </a>
+  <a href="index.html" id="voltar-home" title="Voltar para a página inicial">Início </a>
 
   <div id="cad_tudo">
-    <!-- Div do Cadastro -->
 
-    <!-- <div id="img_cada"><img src="img/imagem_card_inscreva.png" alt=""> </div> -->
+
+
+    <!-- Div do Cadastro -->
 
     <div id="cad_conteudo">
 
@@ -38,16 +39,17 @@
       <div id="colunas3">
         <label for="cad_senha">Senha:</label>
 
-        <!-- Container para o input e o ícone -->
+        <!-- Container para o input da senha e o ícone -->
         <div style="position: relative; width: 80%; margin: 0 auto;">
           <input type="password" id="cad_senha" name="senha" style="width: 100%; padding-right: 40px;"
             placeholder="Abcd123*">
 
-
           <span onclick="olho_senha1()"
             style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;">
+
             <img id="id_icone" src="img/olho-nao.png" width="20"> </span>
         </div>
+
 
       </div>
 
@@ -58,16 +60,18 @@
         <div style="position: relative; width: 80%; margin: 0 auto;">
           <input type="password" id="cad_senha2" name="senha" style="width: 100%; padding-right: 40px;">
 
-          <!-- Ícone de olho com SVG -->
+           <!-- Container para o input da senha e o ícone -->
           <span onclick="olho_senha2()"
             style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;">
             <img id="id_icone2" src="img/olho-nao.png" width="20"> </span>
         </div>
+
       </div>
 
 
 
       <button id="cad_botao" onclick="cadastrar()">Cadastrar</button>
+      
       <p class="trocar-link">Já tem uma conta? <a onclick="mostrarLogin()">Entrar</a></p>
     </div>
 
@@ -164,7 +168,7 @@
     var senhaVar = cad_senha.value;
     var confirmacaoSenhaVar = cad_senha2.value;
 
-    
+
 
 
     // varre a string 'senha' aplicando a verificação de todas as regras da senha 
@@ -225,13 +229,18 @@
       return
 
     }
- 
+
 
     if (!emailVar.includes("@")) {
       alert("Email inválido")
       return
     }
-    
+
+    if (!emailVar.endsWith(".com") && !emailVar.endsWith(".gov") && !emailVar.endsWith(".school") && !emailVar.endsWith(".com.br") ) {
+      alert("Email inválido")
+      return
+    }
+
 
     fetch("/usuarios/cadastrar", {
       method: "POST",
@@ -268,7 +277,7 @@
 
 
         } else {
-          alert("Houve um erro ao tentar realizar o cadastro!");
+          alert("Houve um erro ao tentar realizar o cadastro, Email já utilizado!");
         }
       })
       .catch(function (resposta) {
