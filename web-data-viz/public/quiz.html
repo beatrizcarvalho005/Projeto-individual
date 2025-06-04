@@ -333,7 +333,9 @@
 
 <script>
     // quiz
+    var secao = sessionStorage.JOGO || 'secao-inicio'
 
+    window.addEventListener('load', mudarConteudo(secao))
     //lista das perguntas para o usuário
     const listaDeQuestoes = [
 
@@ -534,7 +536,8 @@
 
     function tentarNovamente() {
 
-        mudarConteudo('secao-painel');
+        location.reload()
+
 
 
     }
@@ -656,7 +659,7 @@
             classComCoresParaMensagemFinal = "text-success-with-bg";
         }
 
-     
+
 
 
         textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos) * 100) + "% das questões."
@@ -702,8 +705,7 @@
             .catch(function (resposta) {
                 console.log(`#ERRO: ${resposta}`);
             });
-
-              obterDadosGrafico();
+        sessionStorage.JOGO = 'secao-painel'
     }
 
 
@@ -979,7 +981,7 @@
 
         fetch(`/medidas/grafico_procura/${id_usuario}`, { cache: 'no-store' })
             .then(function (response) {
-            
+
 
                 if (response.ok) {
                     return response.json();
@@ -1020,7 +1022,7 @@
                     const registro = graficoTodos[i];
                     const registro2 = graficoEspecifico[i];
 
-                    
+
                     dados.labels.push(registro.Questão);
                     dados.datasets[0].data.push(registro.total_acertos);
                     dados.datasets[1].data.push(registro.total_erros);
