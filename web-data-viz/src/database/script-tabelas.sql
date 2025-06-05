@@ -64,14 +64,3 @@ insert into alternativas_quiz (opcao, enunciado, alternativa_correta , fk_pergun
 ("C" , "Violão" , false , 4) ,  
 ("D" , "Cavaquinho" , false , 4) ;
 
-select p.pergunta as pergunta , 
-a.opcao as opção , 
-a.enunciado as alternativa , 
-  case 
-        when alternativa_correta = true 
-        then 'Correta'
-        else 'Incorreta'
-    end as status_alternativa
-from alternativas_quiz as a
-join perguntas_quiz as p
-on a.fk_perguntas = p.idQuiz;
